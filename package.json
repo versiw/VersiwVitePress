@@ -8,6 +8,7 @@
     "commit": "versiwfekit-verify-commit"
   },
   "devDependencies": {
+    "@types/node": "^22.14.0",
     "@versiwfekit/prettier": "^1.0.1",
     "@versiwfekit/verify-commit": "^1.0.1",
     "@vicons/material": "^0.13.0",
