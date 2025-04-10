@@ -1,0 +1,88 @@
+name: Deploy VitePress site to Pages
+
+on:
+  # 在针对 `main` 分支的推送上运行。如果你
+  # 使用 `master` 分支作为默认分支，请将其更改为 `master`
+  push:
+    branches: [main]
+
+  # 允许你从 Actions 选项卡手动运行此工作流程
+  workflow_dispatch:
+
+# 设置时区
+env:
+  TZ: Asia/Shanghai
+
+# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
+permissions:
+  # 允许读取仓库内容的权限。
+  contents: read
+  # 允许写入 GitHub Pages 的权限。
+  pages: write
+  # 允许写入 id-token 的权限。
+  id-token: write
+
+# 并发控制配置
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# 定义执行任务
+jobs:
+  # 构建任务
+  build:
+    runs-on: ubuntu-latest
+
+    # node v20 运行
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      # 拉取代码
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # 保留 Git 信息
+          fetch-depth: 0
+
+      # 设置使用 Node.js 版本
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm # 或 pnpm / yarn
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+        # 安装依赖
+      - name: Install dependencies
+        run: |
+          npm install
+
+        # 构建项目
+      - name: Build with VitePress
+        run: npm run docs:build --base /VersiwVitePress/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
+
+      #   # 上传 _site 的资源，用于后续部署
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+
+  # 部署工作
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
