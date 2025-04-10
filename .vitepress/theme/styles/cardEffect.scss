@@ -1,0 +1,118 @@
+.VPHomeHero {
+  .image {
+    .custom-image-container {
+      --per: 30%;
+      position: relative;
+      transform-style: preserve-3d; /* 保持 3D 变换 */
+      perspective: 1000px; /* 调整值控制透视强度 */
+      transform-origin: center;
+      will-change: transform; /* 优化动画性能 */
+      backface-visibility: hidden; /* 防止翻转时闪烁 */
+
+      transition: all 0.1s;
+
+      /* 光泽层 - 使用伪元素实现 */
+      &::before {
+        content: '';
+        position: absolute;
+        display: none;
+        inset: 0;
+        border-radius: 24px;
+        background: linear-gradient(
+          115deg,
+          transparent 0%,
+          // rgba(255, 255, 255, 0.5) var(--per),
+          // rgba(0, 0, 0, 0.5) calc(var(--per) + 25%),
+          // rgba(255, 255, 255, 0.5) calc(var(--per) + 50%),
+          // #06e8ff var(--per),
+          // #ffab2e calc(var(--per) + 25%),
+          // #ff2212 calc(var(--per) + 50%),
+          #03a9f4 var(--per),
+          #e91e63 calc(var(--per) + 35%),
+          #9c27b0 calc(var(--per) + 65%),
+          transparent 100%
+        );
+        // mix-blend-mode: color-dodge;
+        mix-blend-mode: overlay;
+
+        transform: translateZ(-15px); /* 创建厚度 */
+        box-shadow:
+          0 0 15px rgba(255, 255, 255, 0.5) inset,
+          0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        filter: blur(10px);
+        z-index: -1;
+      }
+
+      &::after {
+        content: '';
+        display: none;
+        border-radius: 24px;
+        position: absolute;
+        inset: 0;
+        background: url('/sparkles.gif');
+        mix-blend-mode: color-dodge;
+      }
+
+      &:hover::after,
+      &:hover::before {
+        display: block;
+      }
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 320px;
+      height: 320px;
+    }
+    @media (min-width: 640px) {
+      .image-container {
+        width: 392px;
+        height: 392px;
+      }
+    }
+    @media (min-width: 960px) {
+      .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transform: translate(-32px, -32px);
+      }
+    }
+
+    .image-src {
+      position: unset;
+      transform: unset;
+    }
+    @media (min-width: 640px) {
+      .image-src {
+        max-width: 256px;
+        max-height: 256px;
+      }
+    }
+    @media (min-width: 960px) {
+      .image-src {
+        max-width: 320px;
+        max-height: 320px;
+      }
+    }
+
+    img {
+      border-radius: 24px;
+      padding: 1.5rem; /* 增加内边距让毛玻璃区域更大 */
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+
+      // logo不可选取
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* 标准语法 */
+    }
+  }
+}
