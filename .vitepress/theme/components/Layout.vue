@@ -63,6 +63,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       <template #nav-screen-content-after>
         <slot name="nav-screen-content-after" />
       </template>
+      <template #layout-top>
+        <slot name="layout-top" />
+      </template>
     </DefaultTheme.Layout>
   </NConfigProvider>
 </template>

@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.16.0",
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.16.0",
     "@types/node": "^22.14.0",
     "@versiwfekit/prettier": "^1.0.1",
     "@versiwfekit/verify-commit": "^1.0.1",

@@ -1,13 +1,8 @@
 import DefaultTheme from 'vitepress/theme'
 import { EnhanceAppContext } from 'vitepress'
 import { h, nextTick, onMounted } from 'vue'
-
-import Layout from './components/Layout.vue'
-import MusicPlay from './components/MusicPlay.vue'
-import NavPage from './components/NavPage.vue'
-
-import './styles/index.scss'
-
+import { NolebaseHighlightTargetedHeading } from '@nolebase/vitepress-plugin-highlight-targeted-heading/client'
+import '@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css'
 import {
   NolebaseEnhancedReadabilitiesMenu,
   NolebaseEnhancedReadabilitiesScreenMenu,
@@ -17,13 +12,20 @@ import {
 import type { Options } from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 
+import Layout from './components/Layout.vue'
+import MusicPlay from './components/MusicPlay.vue'
+import NavPage from './components/NavPage.vue'
+
+import './styles/index.scss'
+
 let initCardEffect = () => {}
 
 export default {
   Layout: () => {
     return h(Layout, null, {
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
-      'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu)
+      'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
+      'layout-top': () => [h(NolebaseHighlightTargetedHeading)]
     })
   },
 
