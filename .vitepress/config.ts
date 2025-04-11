@@ -3,117 +3,121 @@ import { fileURLToPath } from 'node:url'
 
 import { withSidebar } from 'vitepress-sidebar'
 
-// 加载环境变量
-const env = loadEnv(process.env.MODE, fileURLToPath(new URL('../', import.meta.url)))
-
-const vitePressOptions = {
-  // VitePress's options here...
-  // 站点元数据
-  title: '诗维',
-  description: '基于 vitepress 构建的个人博客',
-  head: [['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]] as [
-    string,
-    Record<string, string>
-  ][],
-  lang: 'zh-CN',
-  base: env.VITE_BASE,
-  // 构建
-  srcDir: 'src',
-  vite: {
-    optimizeDeps: {
-      exclude: [
-        '@nolebase/vitepress-plugin-enhanced-readabilities/client',
-        'vitepress',
-        '@nolebase/ui'
-      ]
-    },
-    ssr: {
-      noExternal: [
-        'naive-ui',
-        'date-fns',
-        'vueuc',
-        '@nolebase/vitepress-plugin-enhanced-readabilities',
-        '@nolebase/vitepress-plugin-highlight-targeted-heading',
-        '@nolebase/ui'
-      ]
-    }
-  },
-  // 主题
-  lastUpdated: true,
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    logo: '/versiw.svg',
-    outline: {
-      level: 'deep',
-      label: '目录'
-    },
-    docFooter: {
-      prev: '上一篇',
-      next: '下一篇'
-    },
-    lastUpdated: {
-      text: '最近一次更新',
-      formatOptions: {
-        dateStyle: 'short',
-        timeStyle: 'medium'
+const vitePressOptions = (env) => {
+  return {
+    // VitePress's options here...
+    // 站点元数据
+    title: '诗维',
+    description: '基于 vitepress 构建的个人博客',
+    head: [['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]] as [
+      string,
+      Record<string, string>
+    ][],
+    lang: 'zh-CN',
+    base: env.VITE_BASE,
+    // 构建
+    srcDir: 'src',
+    vite: {
+      optimizeDeps: {
+        exclude: [
+          '@nolebase/vitepress-plugin-enhanced-readabilities/client',
+          'vitepress',
+          '@nolebase/ui'
+        ]
+      },
+      ssr: {
+        noExternal: [
+          'naive-ui',
+          'date-fns',
+          'vueuc',
+          '@nolebase/vitepress-plugin-enhanced-readabilities',
+          '@nolebase/vitepress-plugin-highlight-targeted-heading',
+          '@nolebase/ui'
+        ]
       }
     },
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          root: {
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
-              },
-              modal: {
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换'
+    // 主题
+    lastUpdated: true,
+    themeConfig: {
+      // https://vitepress.dev/reference/default-theme-config
+      logo: '/versiw.svg',
+      outline: {
+        level: 'deep',
+        label: '目录'
+      },
+      docFooter: {
+        prev: '上一篇',
+        next: '下一篇'
+      },
+      lastUpdated: {
+        text: '最近一次更新',
+        formatOptions: {
+          dateStyle: 'short',
+          timeStyle: 'medium'
+        }
+      },
+      search: {
+        provider: 'local',
+        options: {
+          locales: {
+            root: {
+              translations: {
+                button: {
+                  buttonText: '搜索文档',
+                  buttonAriaLabel: '搜索文档'
+                },
+                modal: {
+                  noResultsText: '无法找到相关结果',
+                  resetButtonTitle: '清除查询条件',
+                  footer: {
+                    selectText: '选择',
+                    navigateText: '切换'
+                  }
                 }
               }
             }
           }
         }
-      }
-    },
-    nav: [
-      { text: '首页', link: '/' },
-      { text: '常用网站', link: '/nav' },
-      { text: '前端', link: '/前端' },
-      { text: '软件', link: '/软件' },
-      {
-        component: 'MusicPlay'
-      }
-    ],
+      },
+      nav: [
+        { text: '首页', link: '/' },
+        { text: '常用网站', link: '/nav' },
+        { text: '前端', link: '/前端' },
+        { text: '软件', link: '/软件' },
+        {
+          component: 'MusicPlay'
+        }
+      ],
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/versiw' }]
+      socialLinks: [{ icon: 'github', link: 'https://github.com/versiw' }]
+    }
   }
 }
 
-export default defineConfig(
-  withSidebar(vitePressOptions, [
-    {
-      scanStartPath: 'src',
-      basePath: '/',
-      resolvePath: '/'
-    },
-    {
-      scanStartPath: 'src/前端',
-      basePath: '/前端/',
-      resolvePath: '/前端/'
-    },
-    {
-      scanStartPath: 'src/软件',
-      basePath: '/软件/',
-      resolvePath: '/软件/'
-    }
-  ])
-)
+export default ({ mode }) => {
+  // 加载环境变量
+  const env = loadEnv(mode, fileURLToPath(new URL('../', import.meta.url)))
+
+  return defineConfig(
+    withSidebar(vitePressOptions(env), [
+      {
+        scanStartPath: 'src',
+        basePath: '/',
+        resolvePath: '/'
+      },
+      {
+        scanStartPath: 'src/前端',
+        basePath: '/前端/',
+        resolvePath: '/前端/'
+      },
+      {
+        scanStartPath: 'src/软件',
+        basePath: '/软件/',
+        resolvePath: '/软件/'
+      }
+    ])
+  )
+}
 
 // https://vitepress.dev/reference/site-config
 // export default ({ mode }) => {
