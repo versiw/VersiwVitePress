@@ -1,18 +1,45 @@
 import DefaultTheme from 'vitepress/theme'
 import { EnhanceAppContext } from 'vitepress'
-import { nextTick, onMounted } from 'vue'
+import { h, nextTick, onMounted } from 'vue'
 
 import Layout from './components/Layout.vue'
 import MusicPlay from './components/MusicPlay.vue'
 import NavPage from './components/NavPage.vue'
+
 import './styles/index.scss'
+
+import {
+  NolebaseEnhancedReadabilitiesMenu,
+  NolebaseEnhancedReadabilitiesScreenMenu,
+  InjectionKey
+} from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
+import type { Options } from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
+import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 
 let initCardEffect = () => {}
 
 export default {
-  Layout,
+  Layout: () => {
+    return h(Layout, null, {
+      'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
+      'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu)
+    })
+  },
 
   async enhanceApp({ app, router, siteData }: EnhanceAppContext) {
+    /**
+     * Nólëbase 集成 阅读增强 配置
+     * https://nolebase-integrations.ayaka.io/pages/zh-CN/integrations/vitepress-plugin-enhanced-readabilities/#%E9%85%8D%E7%BD%AE
+     */
+    app.provide(InjectionKey, {
+      layoutSwitch: {
+        defaultMode: 5
+      },
+      spotlight: {
+        defaultToggle: true
+      }
+    } as Options)
+
     // 动态导入包含 document 的文件
     if (!import.meta.env.SSR) {
       const module = await import('./hooks/CardEffect.js')

@@ -15,8 +15,21 @@ export default ({ mode }) => {
     srcDir: 'src',
 
     vite: {
+      optimizeDeps: {
+        exclude: [
+          '@nolebase/vitepress-plugin-enhanced-readabilities/client',
+          'vitepress',
+          '@nolebase/ui'
+        ]
+      },
       ssr: {
-        noExternal: ['naive-ui', 'date-fns', 'vueuc']
+        noExternal: [
+          'naive-ui',
+          'date-fns',
+          'vueuc',
+          '@nolebase/vitepress-plugin-enhanced-readabilities',
+          '@nolebase/ui'
+        ]
       }
     },
 

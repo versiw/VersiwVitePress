@@ -57,6 +57,12 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
           <img class="VPImage image-src" src="/versiw.svg" alt="诗维 - Versiw" />
         </div>
       </template>
+      <template #nav-bar-content-after>
+        <slot name="nav-bar-content-after" />
+      </template>
+      <template #nav-screen-content-after>
+        <slot name="nav-screen-content-after" />
+      </template>
     </DefaultTheme.Layout>
   </NConfigProvider>
 </template>
