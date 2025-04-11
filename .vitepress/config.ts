@@ -5,7 +5,7 @@ export default ({ mode }) => {
   const env = loadEnv(mode, fileURLToPath(new URL('../', import.meta.url)))
   return defineConfig({
     // 站点元数据
-    title: '诗维 - Versiw',
+    title: '诗维',
     description: '基于 vitepress 构建的个人博客',
     head: [['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]],
     lang: 'zh-CN',
@@ -49,6 +49,14 @@ export default ({ mode }) => {
       docFooter: {
         prev: '上一篇',
         next: '下一篇'
+      },
+
+      lastUpdated: {
+        text: '最近一次更新',
+        formatOptions: {
+          dateStyle: 'short',
+          timeStyle: 'medium'
+        }
       },
 
       search: {

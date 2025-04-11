@@ -1,6 +1,35 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  12.5% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  25% {
+    transform: translateY(-16px) rotate(3deg);
+  }
+  37.5% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  62.5% {
+    transform: translateY(8px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(16px) rotate(1deg);
+  }
+  87.5% {
+    transform: translateY(8px) rotate(2deg);
+  }
+}
+
 .VPHomeHero {
   .image {
     .custom-image-container {
+      will-change: transform;
       --per: 30%;
       position: relative;
       transform-style: preserve-3d; /* 保持 3D 变换 */
@@ -10,6 +39,8 @@
       backface-visibility: hidden; /* 防止翻转时闪烁 */
 
       transition: all 0.1s;
+
+      animation: float 3s infinite linear;
 
       /* 光泽层 - 使用伪元素实现 */
       &::before {
@@ -53,9 +84,14 @@
         mix-blend-mode: color-dodge;
       }
 
-      &:hover::after,
-      &:hover::before {
-        display: block;
+      /* 鼠标移入时显示特效并暂停浮动动画 */
+      &:hover {
+        animation: none; /* 暂停浮动动画 */
+
+        &::before,
+        &::after {
+          display: block; /* 显示伪元素 */
+        }
       }
     }
 
