@@ -11,7 +11,8 @@ import './styles/index.scss'
 import {
   NolebaseEnhancedReadabilitiesMenu,
   NolebaseEnhancedReadabilitiesScreenMenu,
-  InjectionKey
+  InjectionKey,
+  LayoutMode
 } from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
 import type { Options } from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
@@ -33,7 +34,10 @@ export default {
      */
     app.provide(InjectionKey, {
       layoutSwitch: {
-        defaultMode: 5
+        defaultMode: LayoutMode.BothWidthAdjustable,
+        contentLayoutMaxWidth: {
+          defaultMaxWidth: 100
+        }
       },
       spotlight: {
         defaultToggle: true

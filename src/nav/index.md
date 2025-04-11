@@ -1,6 +1,7 @@
 ---
 pageClass: custom-nav-page-class
 outline: [2, 3, 4]
+sidebar: false
 ---
 
 <script setup>
