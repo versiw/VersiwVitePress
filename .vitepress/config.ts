@@ -7,7 +7,7 @@ export default ({ mode }) => {
     // 站点元数据
     title: '诗维 - Versiw',
     description: '基于 vitepress 构建的个人博客',
-    head: [['link', { rel: 'icon', href: '/versiw.ico' }]],
+    head: [['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]],
     lang: 'zh-CN',
     base: env.VITE_BASE,
 
