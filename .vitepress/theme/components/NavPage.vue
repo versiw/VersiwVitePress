@@ -50,7 +50,12 @@ const slugify = (str) => {
               </NEllipsis>
             </template>
             <template #header-extra>
-              <NAvatar size="small" :src="item.icon" />
+              <NAvatar
+                size="small"
+                :src="item.icon"
+                lazy
+                :intersection-observer-options="{ root: null }"
+              />
             </template>
             <NEllipsis :line-clamp="2">
               {{ item.desc }}
