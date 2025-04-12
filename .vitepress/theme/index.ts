@@ -62,14 +62,18 @@ export default {
   },
 
   setup() {
-    onMounted(() => {
+    onMounted(async () => {
+      if (!import.meta.env.SSR) {
+        const module = await import('./hooks/CardEffect.js')
+        initCardEffect = module.initCardEffect
+        console.log('ssr')
+      }
       // 只在客户端执行
       if (typeof window !== 'undefined') {
         // 使用nextTick确保DOM更新
         nextTick(() => {
           // 初始加载时执行
           setTimeout(initCardEffect, 100) // 小延迟确保 DOM 完全渲染
-          // 监听路由变化
           window.addEventListener('load', initCardEffect)
         })
       }
