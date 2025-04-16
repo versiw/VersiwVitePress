@@ -1,5 +1,6 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
+pageClass: custom-home-class
 layout: home
 
 hero:

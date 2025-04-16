@@ -654,7 +654,7 @@
   }
 }
 
-:root {
+.custom-home-class {
   --vp-c-brand-1: #00a98e;
   --vp-c-brand-light: #4ad1b4;
   --vp-c-brand-lighter: #78fadc;
@@ -665,15 +665,15 @@
   --vp-c-brand-2: var(--vp-c-brand-darker);
 
   // 一共 82 种颜色，颜色过度时间为 3s
-  animation: rainbow 5s linear infinite;
+  animation: rainbow 5s linear infinite !important;
 }
 
-:root.dark {
+.custom-home-class.dark {
   --vp-c-brand-2: var(--vp-c-brand-light);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
+  .custom-home-class {
     animation: none !important;
   }
 }
