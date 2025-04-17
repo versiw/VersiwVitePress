@@ -1,6 +1,9 @@
 import { defineConfig, loadEnv } from 'vitepress'
 import { fileURLToPath } from 'node:url'
+import { cwd } from 'node:process'
+import path from 'node:path'
 
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import { withSidebar } from 'vitepress-sidebar'
 
 const vitePressOptions = (env) => {
@@ -90,6 +93,17 @@ const vitePressOptions = (env) => {
       ],
 
       socialLinks: [{ icon: 'github', link: 'https://github.com/versiw' }]
+    },
+    // 自定义
+    markdown: {
+      config: (md) => {
+        md.use(
+          BiDirectionalLinks({
+            dir: path.join(cwd(), env.VITE_BASE, 'src'),
+            baseDir: '/'
+          })
+        )
+      }
     }
   }
 }

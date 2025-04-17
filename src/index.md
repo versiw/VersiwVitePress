@@ -19,11 +19,9 @@ hero:
       link: https://github.com/versiw/VersiwVitePress
 
 features:
-  - title: 待定标题 A
+  - title: 个人知识库
     icon: <img src="https://gcore.jsdelivr.net/gh/versiw/FavPic/images/202410212012805.png" alt="最新流行技术栈" width="100" height="100" />
-    details: 巴拉巴拉巴拉...
-    link: https://gcore.jsdelivr.net/gh/versiw/FavPic/images/202410212012805.png
-    linkText: 测试连接
+    details: 也许它可以是一个宝库...
 
   - title: 待定标题 B
     icon: <img src="https://gcore.jsdelivr.net/gh/versiw/FavPic/images/202412281930201.png" alt="主题配置" width="100" height="100" />
