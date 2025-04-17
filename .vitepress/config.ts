@@ -99,7 +99,7 @@ const vitePressOptions = (env) => {
       config: (md) => {
         md.use(
           BiDirectionalLinks({
-            dir: path.join(cwd(), env.VITE_BASE, 'src'),
+            dir: path.join(cwd(), 'src'),
             baseDir: '/'
           })
         )
