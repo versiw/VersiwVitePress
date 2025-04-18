@@ -88,8 +88,18 @@ const vitePressOptions = (env) => {
         { text: '前端', link: '/前端/包管理器/npm 命令' },
         { text: '软件', link: '/软件' },
         {
-          component: 'MusicPlay'
+          text: '项目展示',
+          items: [
+            {
+              text: 'VueElectronStarter',
+              link: 'https://versiw.github.io/VueElectronStarterDocs/'
+            },
+            { text: 'versiwfekit (前端工具集)', link: 'https://github.com/versiw/versiwfekit' }
+          ]
         }
+        // {
+        //   component: 'MusicPlay'
+        // }
       ],
 
       socialLinks: [{ icon: 'github', link: 'https://github.com/versiw' }]

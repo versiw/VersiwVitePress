@@ -43,7 +43,7 @@ const slugify = (str) => {
     <NGrid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="12" :y-gap="8">
       <NGridItem v-for="item in items">
         <a :href="item.link" target="_blank">
-          <NCard hoverable size="small" embedded style="height: 130px">
+          <NCard hoverable size="small" embedded class="card" header-extra-class="header-extra">
             <template #header>
               <NEllipsis :line-clamp="2">
                 {{ item.title }}
@@ -57,9 +57,11 @@ const slugify = (str) => {
                 :intersection-observer-options="{ root: null }"
               />
             </template>
-            <NEllipsis :line-clamp="2">
-              {{ item.desc }}
-            </NEllipsis>
+            <template #default>
+              <NEllipsis :line-clamp="2">
+                {{ item.desc }}
+              </NEllipsis>
+            </template>
           </NCard>
         </a>
       </NGridItem>
@@ -67,4 +69,19 @@ const slugify = (str) => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.card {
+  height: 130px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.header-extra {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+</style>
