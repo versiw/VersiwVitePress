@@ -54,6 +54,12 @@ export const navDatas: NavData[] = [
         title: 'SoybeanAdmin',
         desc: '一个清新优雅的中后台模版',
         link: 'https://docs.soybeanjs.cn/zh/'
+      },
+      {
+        icon: 'https://vitepress.dev/vitepress-logo-mini.svg',
+        title: 'VitePress',
+        desc: '由 Vite 和 Vue 驱动的静态站点生成器',
+        link: 'https://vitepress.dev/zh/'
       }
     ]
   },
@@ -65,6 +71,12 @@ export const navDatas: NavData[] = [
         title: 'Vue Router',
         desc: 'Vue.js 的官方路由，为 Vue.js 提供富有表现力、可配置的、方便的路由',
         link: 'https://router.vuejs.org/zh/'
+      },
+      {
+        icon: '',
+        title: 'Unplugin Vue Router',
+        desc: '类型化的、基于文件的 Vue 3路由',
+        link: 'https://uvr.esm.is/'
       },
       {
         icon: 'https://driver.employleague.cn/assets/img/driver.png',
@@ -89,6 +101,69 @@ export const navDatas: NavData[] = [
         title: 'Pinia',
         desc: '符合直觉的 Vue.js 状态管理库',
         link: 'https://pinia.vuejs.org/zh/'
+      },
+      {
+        icon: 'https://vue-i18n.intlify.dev/vue-i18n-logo.png',
+        title: 'Vue I18n',
+        desc: '适用于 Vue.js 的国际化插件',
+        link: 'https://vue-i18n.intlify.dev/'
+      }
+    ]
+  },
+  {
+    group: '构建工具',
+    items: [
+      {
+        icon: 'https://cn.vitejs.dev/logo.svg',
+        title: 'Vite',
+        desc: '卓越的 Web 开发构建工具',
+        link: 'https://cn.vitejs.dev/'
+      },
+      {
+        icon: 'https://cn.electron-vite.org/favicon.svg',
+        title: 'electron-vite',
+        desc: '下一代 Electron 开发构建工具',
+        link: 'https://cn.electron-vite.org/'
+      }
+    ]
+  },
+  {
+    group: 'CSS',
+    items: [
+      {
+        icon: 'https://animate.style/img/favicon.ico',
+        title: 'Animate.css',
+        desc: '一个跨浏览器的 CSS 动画库',
+        link: 'https://animate.style/'
+      },
+      {
+        icon: 'https://github.com/fluidicon.png',
+        title: 'iCSS',
+        desc: 'CSS 奇技淫巧，在这里，都有',
+        link: 'https://github.com/chokcoco/iCSS'
+      },
+      {
+        icon: 'https://www.gradientmagic.com/favicon/favicon-32x32.png',
+        title: 'Gradient Magic',
+        desc: '精彩而独特的 CSS 渐变免费画廊',
+        link: 'https://www.gradientmagic.com/'
+      }
+    ]
+  },
+  {
+    group: '其它',
+    items: [
+      {
+        icon: 'https://nolebase.ayaka.io/logo.svg',
+        title: 'Nólëbase 集成',
+        desc: '多元化的文档工程工具合集',
+        link: 'https://nolebase-integrations.ayaka.io/pages/zh-CN/'
+      },
+      {
+        icon: 'https://animated-fluent-emoji.vercel.app/favicon.ico',
+        title: 'Animated Fluent Emojis',
+        desc: 'Microsoft 动画流畅的表情符号',
+        link: 'https://animated-fluent-emoji.vercel.app/'
       }
     ]
   }
