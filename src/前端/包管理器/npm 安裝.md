@@ -86,7 +86,7 @@ npm -v
 
 在 node 安装目录下新建两个文件夹：`node_cache` 和 `node_global`
 
-> [!note] 目录汉阴
+> [!note] 目录含义
 > `node_global`：npm install 下载的全局插件
 > `node_cache`：node 的缓存
 
@@ -133,6 +133,6 @@ npm config set cache "%NVM_SYMLINK%\node_cache"
 
 应该是 Node. js 安装时是给用户安装了，没有管理员权限，给安装目录赋予管理员权限即可
 
-![[Pasted image 20240511132224.png|300]]
+![[npm 安裝-20250418-1.png|300]]
 
-![[Pasted image 20240511132228.png|300]]
+![[npm 安裝-20250418-2.png|300]]

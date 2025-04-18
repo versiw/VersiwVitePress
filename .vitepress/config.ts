@@ -85,7 +85,7 @@ const vitePressOptions = (env) => {
       nav: [
         { text: '首页', link: '/' },
         { text: '常用网站', link: '/nav' },
-        { text: '前端', link: '/前端/包管理器/npm 命令' },
+        { text: '前端', link: '/前端/包管理器/npm 安裝' },
         { text: '软件', link: '/软件' },
         {
           text: '项目展示',
@@ -134,7 +134,8 @@ export default ({ mode }) => {
       {
         scanStartPath: 'src/前端',
         basePath: '/前端/',
-        resolvePath: '/前端/'
+        resolvePath: '/前端/',
+        sortMenusByName: true
       },
       {
         scanStartPath: 'src/软件',
