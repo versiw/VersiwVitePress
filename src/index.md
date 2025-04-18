@@ -20,14 +20,14 @@ hero:
 
 features:
   - title: 个人知识库
-    icon: <img src="https://gcore.jsdelivr.net/gh/versiw/FavPic/images/202410212012805.png" alt="最新流行技术栈" width="100" height="100" />
-    details: 也许它可以是一个宝库...
+    icon: <img src="/emoji/Spark.png" alt="个人知识库" />
+    details: 也许它可以是一个宝库
 
-  - title: 待定标题 B
-    icon: <img src="https://gcore.jsdelivr.net/gh/versiw/FavPic/images/202412281930201.png" alt="主题配置" width="100" height="100" />
-    details: 巴拉巴拉巴拉...
+  - title: 网址导航
+    icon: <img src="/emoji/Ghost.png" alt="主题配置" />
+    details: 希望能带你去往正确的地方
 
-  - title: 待定标题 C
-    icon: <img src="https://gcore.jsdelivr.net/gh/versiw/FavPic/images/202412281930203.png" alt="文件路由系统 / 传统路由" width="100" height="100" />
-    details: 巴拉巴拉巴拉...
+  - title: 巧技妙法
+    icon: <img src="/emoji/Robot.png" alt="巧技妙法" />
+    details: 真的对人类有帮助嘛
 ---

@@ -11,7 +11,7 @@ const vitePressOptions = (env) => {
     // VitePress's options here...
     // 站点元数据
     title: '诗维',
-    description: '基于 vitepress 构建的个人博客',
+    description: '基于 VitePress 构建的个人知识库',
     head: [['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]] as [
       string,
       Record<string, string>
@@ -85,7 +85,7 @@ const vitePressOptions = (env) => {
       nav: [
         { text: '首页', link: '/' },
         { text: '常用网站', link: '/nav' },
-        { text: '前端', link: '/前端' },
+        { text: '前端', link: '/前端/包管理器/npm 命令' },
         { text: '软件', link: '/软件' },
         {
           component: 'MusicPlay'
@@ -96,6 +96,7 @@ const vitePressOptions = (env) => {
     },
     // 自定义
     markdown: {
+      lineNumbers: true,
       config: (md) => {
         md.use(
           BiDirectionalLinks({
@@ -117,7 +118,8 @@ export default ({ mode }) => {
       {
         scanStartPath: 'src',
         basePath: '/',
-        resolvePath: '/'
+        resolvePath: '/',
+        debugPrint: false
       },
       {
         scanStartPath: 'src/前端',
