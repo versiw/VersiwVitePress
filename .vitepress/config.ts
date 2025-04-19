@@ -88,7 +88,7 @@ const vitePressOptions = (env) => {
         { text: '前端', link: '/前端/包管理器/npm 安裝' },
         { text: '软件', link: '/软件' },
         {
-          text: '项目展示',
+          text: '仓库链接',
           items: [
             {
               text: 'VueElectronStarter',
