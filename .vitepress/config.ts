@@ -6,16 +6,26 @@ import path from 'node:path'
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import { withSidebar } from 'vitepress-sidebar'
 
+/** @type {import('vitepress').UserConfig} */
 const vitePressOptions = (env) => {
   return {
     // VitePress's options here...
     // 站点元数据
     title: '诗维',
     description: '基于 VitePress 构建的个人知识库',
-    head: [['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]] as [
-      string,
-      Record<string, string>
-    ][],
+    head: [
+      ['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }],
+      [
+        'link',
+        {
+          rel: 'preload',
+          herf: env.VITE_BASE + 'fonts/LXGWWenKaiGBScreenR.ttf',
+          as: 'font',
+          type: 'font/ttf',
+          crossorigin: ''
+        }
+      ]
+    ] as [string, Record<string, string>][],
     lang: 'zh-CN',
     base: env.VITE_BASE,
     // 构建
