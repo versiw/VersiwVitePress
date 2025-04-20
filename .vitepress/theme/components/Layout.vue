@@ -52,6 +52,13 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 <template>
   <NConfigProvider :theme="isDark ? darkTheme : undefined">
     <DefaultTheme.Layout>
+      <template #nav-bar-title-after>
+        <img
+          src="https://visitor-badge.laobi.icu/badge?page_id=versiw.VersiwVitePress&left_color=%23e0c3fc&right_color=%23a6c1ee"
+          alt="versiw.VersiwVitePress visitor badge"
+          style="margin-left: 10px"
+        />
+      </template>
       <template #home-hero-image>
         <div class="custom-image-container">
           <img class="VPImage image-src" src="/versiw.svg" alt="诗维 - Versiw" />
