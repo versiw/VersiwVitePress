@@ -1,0 +1,12 @@
+# default
+
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# custom
+
+**/dist
+**/cache
+src/**/*.md
