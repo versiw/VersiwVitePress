@@ -96,6 +96,15 @@ const vitePressOptions = (env) => {
         { text: '首页', link: '/' },
         { text: '常用网站', link: '/nav' },
         { text: '前端', link: '/前端/包管理器/npm 安裝' },
+        {
+          text: '后端',
+          items: [
+            {
+              text: 'Hadoop',
+              link: '后端/Hadoop/Hadoop HA高可用+Zookeeper搭建 一站式解決方案！！！'
+            }
+          ]
+        },
         { text: '软件', link: '/软件' },
         {
           text: '仓库链接',
@@ -117,6 +126,10 @@ const vitePressOptions = (env) => {
     // 自定义
     markdown: {
       lineNumbers: true,
+      image: {
+        // 默认禁用；设置为 true 可为所有图片启用懒加载。
+        lazyLoading: true
+      },
       config: (md) => {
         md.use(
           BiDirectionalLinks({
@@ -146,6 +159,12 @@ export default ({ mode }) => {
         basePath: '/前端/',
         resolvePath: '/前端/',
         sortMenusByName: true
+      },
+      {
+        scanStartPath: 'src/后端',
+        basePath: '/后端/',
+        resolvePath: '/后端/',
+        useTitleFromFrontmatter: true
       },
       {
         scanStartPath: 'src/软件',
