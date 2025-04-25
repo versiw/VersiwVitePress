@@ -115,6 +115,16 @@ const vitePressOptions = (env) => {
             },
             { text: 'versiwfekit (前端工具集)', link: 'https://github.com/versiw/versiwfekit' }
           ]
+        },
+        {
+          text: '作品集',
+          items: [
+            { text: '链路加密机对称密钥管理系统', link: 'gallery/encryptmachinemanager.md' },
+            { text: '二维码加密数字通行证系统', link: 'gallery/qrcode-pass.md' },
+            { text: 'Django招聘网站爬虫管理和数据分析系统', link: 'gallery/django-job-spider.md' },
+            { text: '微信小程序题库管理系统', link: 'gallery/wx-question.md' },
+            { text: 'Python房产信息采集和可视化分析', link: 'gallery/python-house-spider.md' }
+          ]
         }
         // {
         //   component: 'MusicPlay'

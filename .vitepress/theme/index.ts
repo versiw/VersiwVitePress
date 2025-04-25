@@ -15,6 +15,7 @@ import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import Layout from './components/Layout.vue'
 import MusicPlay from './components/MusicPlay.vue'
 import NavPage from './components/NavPage.vue'
+import Gallery from './components/Gallery.vue'
 import BackTop from './components/BackTop.vue'
 
 import './styles/index.scss'
@@ -55,6 +56,7 @@ export default {
 
     app.component('MusicPlay', MusicPlay)
     app.component('NavPage', NavPage)
+    app.component('Gallery', Gallery)
     app.component('BackTop', BackTop)
 
     // SPA切换页面导致监听事件丢失

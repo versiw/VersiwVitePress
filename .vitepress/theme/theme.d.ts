@@ -17,3 +17,14 @@ interface NavData {
   /**站点集合 */
   items: NavItem[]
 }
+
+/**
+ * Gallery 数据
+ */
+interface GalleryData {
+  /** 标题 */
+  title: string
+  /** 描述 */
+  desc?: string
+  imgs: string[]
+}
