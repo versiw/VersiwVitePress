@@ -50,7 +50,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <NConfigProvider :theme="isDark ? darkTheme : undefined">
+  <NConfigProvider :theme="isDark ? darkTheme : undefined" preflight-style-disabled>
     <DefaultTheme.Layout>
       <!-- <template #nav-bar-title-after>
         <img

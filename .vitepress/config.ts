@@ -106,6 +106,7 @@ const vitePressOptions = (env) => {
           ]
         },
         { text: '软件', link: '/软件' },
+        // { text: '阅读', link: '/book' },
         {
           text: '仓库链接',
           items: [

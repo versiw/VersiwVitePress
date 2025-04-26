@@ -28,3 +28,23 @@ interface GalleryData {
   desc?: string
   imgs: string[]
 }
+
+/**
+ * Library 数据
+ */
+interface LibraryItem {
+  /** 图书封面 */
+  img?: string
+  /** 图书名称 */
+  title: string
+  /** 图书描述 */
+  desc?: string
+  /** 图书链接 */
+  link: string
+}
+interface LibraryData {
+  /**分组 */
+  group: string
+  /**图书集合 */
+  items: LibraryItem[]
+}

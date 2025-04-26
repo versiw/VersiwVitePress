@@ -16,7 +16,9 @@ import Layout from './components/Layout.vue'
 import MusicPlay from './components/MusicPlay.vue'
 import NavPage from './components/NavPage.vue'
 import Gallery from './components/Gallery.vue'
+import Library from './components/Library.vue'
 import BackTop from './components/BackTop.vue'
+import BlurReveal from './components/BlurReveal.vue'
 
 import './styles/index.scss'
 
@@ -57,7 +59,9 @@ export default {
     app.component('MusicPlay', MusicPlay)
     app.component('NavPage', NavPage)
     app.component('Gallery', Gallery)
+    app.component('Library', Library)
     app.component('BackTop', BackTop)
+    app.component('BlurReveal', BlurReveal)
 
     // SPA切换页面导致监听事件丢失
     router.onAfterRouteChange = () => {

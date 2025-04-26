@@ -19,29 +19,33 @@ const NImage = defineAsyncComponent(() => import('naive-ui').then((m) => m.NImag
 </script>
 
 <template>
-  <h1 class="gallery-title">{{ data.title }}</h1>
-  <div class="gallery-desc-div">
-    <p class="gallery-desc-p">{{ data.desc }}</p>
-    <!-- <div class="gallery-desc-p" v-html="data.desc"></div> -->
-  </div>
-  <NCarousel
-    class="gallery-carousel"
-    autoplay
-    dot-type="line"
-    trigger="hover"
-    :centered-slides="true"
-    draggable
-    :interval="3000"
-  >
-    <NImage
-      class="gallery-carousel-img"
-      v-for="img in data.imgs"
-      :src="withBase(img)"
-      width="65%"
-      height="100%"
-      object-fit="contain"
-    />
-  </NCarousel>
+  <ClientOnly>
+    <BlurReveal :delay="0.2" :duration="0.75" class="p-8">
+      <h1 class="gallery-title">{{ data.title }}</h1>
+      <div class="gallery-desc-div">
+        <p class="gallery-desc-p">{{ data.desc }}</p>
+        <!-- <div class="gallery-desc-p" v-html="data.desc"></div> -->
+      </div>
+      <NCarousel
+        class="gallery-carousel"
+        autoplay
+        dot-type="line"
+        trigger="hover"
+        :centered-slides="true"
+        draggable
+        :interval="3000"
+      >
+        <NImage
+          class="gallery-carousel-img"
+          v-for="img in data.imgs"
+          :src="withBase(img)"
+          width="65%"
+          height="100%"
+          object-fit="contain"
+        />
+      </NCarousel>
+    </BlurReveal>
+  </ClientOnly>
 </template>
 
 <style>
