@@ -18,7 +18,7 @@ import NavPage from './components/NavPage.vue'
 import Gallery from './components/Gallery.vue'
 import Library from './components/Library.vue'
 import BackTop from './components/BackTop.vue'
-import BlurReveal from './components/BlurReveal.vue'
+import BlurReveal from './components/inspira-ui/BlurReveal.vue'
 
 import './styles/index.scss'
 
