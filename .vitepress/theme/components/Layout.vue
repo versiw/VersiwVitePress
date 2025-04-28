@@ -60,7 +60,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
         />
       </template> -->
       <template #home-hero-image>
-        <div class="custom-image-container">
+        <div class="custom-hero-image-container">
           <img class="VPImage image-src" src="/versiw.svg" alt="诗维 - Versiw" />
         </div>
       </template>

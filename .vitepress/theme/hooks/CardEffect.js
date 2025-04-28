@@ -1,7 +1,7 @@
 export const initCardEffect = () => {
   // 3D旋转卡片检视效果
-  const logoContainer = document.querySelector('.VPHomeHero .image .custom-image-container')
-  const logoImage = document.querySelector('.VPHomeHero .image .custom-image-container')
+  const logoContainer = document.querySelector('.VPHomeHero .image .custom-hero-image-container')
+  const logoImage = document.querySelector('.VPHomeHero .image .custom-hero-image-container')
   const multiple = 8 // 控制旋转幅度
 
   if (!logoContainer || !logoImage) return
