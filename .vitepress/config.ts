@@ -95,7 +95,19 @@ const vitePressOptions = (env) => {
       nav: [
         { text: '首页', link: '/' },
         { text: '常用网站', link: '/nav' },
-        { text: '前端', link: '/前端/包管理器/npm 安裝' },
+        {
+          text: '前端',
+          items: [
+            {
+              text: '包管理器',
+              link: '前端/包管理器/npm 安裝'
+            },
+            {
+              text: 'VitePress',
+              link: '前端/VitePress/VitePress 实现主页 Logo 3D 旋转动态卡片检视效果'
+            }
+          ]
+        },
         {
           text: '后端',
           items: [
