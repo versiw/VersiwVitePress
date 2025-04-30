@@ -19,6 +19,7 @@ import Gallery from './components/Gallery.vue'
 import Library from './components/Library.vue'
 import BackTop from './components/BackTop.vue'
 import BlurReveal from './components/inspira-ui/BlurReveal.vue'
+import GiscusComment from './components/GiscusComment.vue'
 
 import './styles/index.scss'
 
@@ -29,7 +30,8 @@ export default {
     return h(Layout, null, {
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
       'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
-      'layout-top': () => [h(NolebaseHighlightTargetedHeading)]
+      'layout-top': () => [h(NolebaseHighlightTargetedHeading)],
+      'doc-after': () => h(GiscusComment)
     })
   },
 

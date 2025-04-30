@@ -73,6 +73,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       <template #layout-top>
         <slot name="layout-top" />
       </template>
+      <template #doc-after>
+        <slot name="doc-after" />
+      </template>
     </DefaultTheme.Layout>
   </NConfigProvider>
   <BackTop />
