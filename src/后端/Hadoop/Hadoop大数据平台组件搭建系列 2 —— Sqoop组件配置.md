@@ -1,3 +1,12 @@
+---
+tags:
+  - hadoop
+  - sqoop
+createDateTime: 2025-04-26 09:27:47
+publish: true
+---
+
+# Hadoop大数据平台组件搭建系列 2 —— Sqoop组件配置
 
 ## 简介
 

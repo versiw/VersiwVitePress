@@ -1,4 +1,11 @@
+---
+tags:
+  - hadoop
+createDateTime: 2025-04-26 09:27:48
+publish: true
+---
 
+# Hadoop大数据平台组件搭建系列 —— Hadoop完全分布式搭建（基于CentOS7.4）史上最简单的Hadoop完全分布式搭建 一站式解决！！！
 
 ## 简介
 

@@ -1,3 +1,12 @@
+---
+tags:
+  - hadoop
+  - hbase
+createDateTime: 2025-04-26 09:27:48
+publish: true
+---
+
+# Hadoop大数据平台组件搭建系列 7 —— HBase完全分布式组件配置
 
 ## 简介
 

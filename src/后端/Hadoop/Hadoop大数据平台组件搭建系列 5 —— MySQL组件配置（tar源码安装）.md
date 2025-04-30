@@ -1,3 +1,13 @@
+---
+tags:
+  - hadoop
+  - mysql
+createDateTime: 2025-04-26 09:27:47
+publish: true
+---
+
+# Hadoop大数据平台组件搭建系列 5 —— MySQL组件配置（tar源码安装）
+
 ## 简介
 
 本篇介绍 Hadoop 大数据平台组件中的**MySQL**组件的搭建

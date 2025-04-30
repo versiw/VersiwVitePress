@@ -1,15 +1,19 @@
 ---
 tags:
-  - nodejs
   - npm
-createDateTime: '  2024-04-18 16:30:09'
+  - nodejs
+createDateTime: 2025-01-23 16:48:13
+publish: true
 ---
+
+# npm 安裝
 
 ## Ubuntu 安裝
 
 ### 更新软件包列表
 
 在终端中执行以下命令，确保你的软件包列表是最新的
+
 
 ```shell
 sudo apt update
@@ -76,6 +80,7 @@ node -v
 npm -v
 ```
 
+
 ## Windows 安装
 
 ### 官网下载安装包
@@ -86,9 +91,11 @@ npm -v
 
 在 node 安装目录下新建两个文件夹：`node_cache` 和 `node_global`
 
+
 > [!note] 目录含义
 > `node_global`：npm install 下载的全局插件
 > `node_cache`：node 的缓存
+
 
 以 `管理员权限` 打开 `cmd` 输入以下命令配置指定文件夹
 
@@ -114,7 +121,7 @@ npm config set cache "%NVM_SYMLINK%\node_cache"
 
 ### 配置环境变量
 
-- 在 `系统变量` 中新建名为 `NODE_PATH` 的环境变量
+ - 在 `系统变量` 中新建名为 `NODE_PATH` 的环境变量
 
 变量名：`NODE_PATH`
 变量值：`{{node安装路径}}\node_global\node_modules
@@ -125,7 +132,7 @@ npm config set cache "%NVM_SYMLINK%\node_cache"
 
 将 `%NODE_PATH%` 添加至 `系统变量` 的 `Path` 中
 
-`系统变量` 中添加 `node` 安装目录
+`系统变量` 中添加 `node` 安装目录 
 
 ### 更改文件夹权限
 

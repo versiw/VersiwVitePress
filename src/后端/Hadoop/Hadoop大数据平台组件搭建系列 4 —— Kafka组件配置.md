@@ -1,3 +1,12 @@
+---
+tags:
+  - hadoop
+  - kafka
+createDateTime: 2025-04-26 09:27:47
+publish: true
+---
+
+# Hadoop大数据平台组件搭建系列 4 —— Kafka组件配置
 
 ## 简介
 
