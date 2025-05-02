@@ -49,6 +49,7 @@ const vitePressOptions = (env) => {
         ]
       }
     },
+    metaChunk: true,
     // 主题
     lastUpdated: true,
     themeConfig: {
@@ -161,6 +162,9 @@ const vitePressOptions = (env) => {
           })
         )
       }
+    },
+    sitemap: {
+      hostname: 'https://versiw.github.io' + env.VITE_BASE
     }
   }
 }
