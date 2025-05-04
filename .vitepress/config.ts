@@ -17,6 +17,7 @@ const vitePressOptions = (env) => {
     description: '基于 VitePress 构建的个人知识库',
     head: [
       ['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }],
+      ['meta', { name: 'msvalidate.01', content: '7D0D5E34E0E1AE2E7F92802CB2D9308D' }],
       [
         'link',
         {
