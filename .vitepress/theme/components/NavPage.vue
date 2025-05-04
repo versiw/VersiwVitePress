@@ -1,21 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
-const NGrid = ref(null)
-const NGridItem = ref(null)
-const NCard = ref(null)
-const NAvatar = ref(null)
-const NEllipsis = ref(null)
-onMounted(() => {
-  import('naive-ui').then((module) => {
-    NGrid.value = module.NGrid
-    NGridItem.value = module.NGridItem
-    NCard.value = module.NCard
-    NAvatar.value = module.NAvatar
-    NEllipsis.value = module.NEllipsis
-  })
-})
-
 const props = defineProps<{
   data: NavData[]
 }>()

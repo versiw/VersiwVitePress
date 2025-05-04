@@ -1,21 +1,9 @@
 <script setup lang="ts">
-import { defineAsyncComponent, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 
 const props = defineProps<{
   data: GalleryData
 }>()
-
-// const NCarousel = ref(null)
-// const NImage = ref(null)
-// onMounted(() => {
-//   import('naive-ui').then((module) => {
-//     NCarousel.value = module.NCarousel
-//     NImage.value = module.NImage
-//   })
-// })
-const NCarousel = defineAsyncComponent(() => import('naive-ui').then((m) => m.NCarousel))
-const NImage = defineAsyncComponent(() => import('naive-ui').then((m) => m.NImage))
 </script>
 
 <template>

@@ -6,6 +6,8 @@ import path from 'node:path'
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import { withSidebar } from 'vitepress-sidebar'
 
+import viteConfig from './vite.config'
+
 /** @type {import('vitepress').UserConfig} */
 const vitePressOptions = (env) => {
   return {
@@ -30,25 +32,7 @@ const vitePressOptions = (env) => {
     base: env.VITE_BASE,
     // 构建
     srcDir: 'src',
-    vite: {
-      optimizeDeps: {
-        exclude: [
-          '@nolebase/vitepress-plugin-enhanced-readabilities/client',
-          'vitepress',
-          '@nolebase/ui'
-        ]
-      },
-      ssr: {
-        noExternal: [
-          'naive-ui',
-          'date-fns',
-          'vueuc',
-          '@nolebase/vitepress-plugin-enhanced-readabilities',
-          '@nolebase/vitepress-plugin-highlight-targeted-heading',
-          '@nolebase/ui'
-        ]
-      }
-    },
+    vite: viteConfig,
     metaChunk: true,
     // 主题
     lastUpdated: true,

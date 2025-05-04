@@ -1,18 +1,9 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme-without-fonts'
-import { nextTick, onMounted, provide, ref } from 'vue'
+import { nextTick, provide } from 'vue'
+import { darkTheme } from 'naive-ui'
 const { isDark } = useData()
-
-// 动态导入 Naive UI 组件
-const darkTheme = ref(null)
-const NConfigProvider = ref(null)
-onMounted(() => {
-  import('naive-ui').then((module) => {
-    darkTheme.value = module.darkTheme
-    NConfigProvider.value = module.NConfigProvider
-  })
-})
 
 // 检测浏览器是否支持 View Transitions API  && 检查用户是否偏好减少动画
 const enableTransitions = () =>
@@ -60,9 +51,11 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
         />
       </template> -->
       <template #home-hero-image>
-        <div class="custom-hero-image-container">
-          <img class="VPImage image-src" src="/versiw.svg" alt="诗维 - Versiw" />
-        </div>
+        <ClientOnly>
+          <div class="custom-hero-image-container">
+            <img class="VPImage image-src" src="/versiw.svg" alt="诗维 - Versiw" />
+          </div>
+        </ClientOnly>
       </template>
       <template #nav-bar-content-after>
         <slot name="nav-bar-content-after" />

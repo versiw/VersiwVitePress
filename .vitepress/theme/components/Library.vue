@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { defineAsyncComponent, onMounted, ref } from 'vue'
+// import { defineAsyncComponent, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 
 // const NGrid = defineAsyncComponent(() => import('naive-ui').then((m) => m.NGrid))
 // const NGridItem = defineAsyncComponent(() => import('naive-ui').then((m) => m.NGridItem))
 
-const NGrid = ref(null)
-const NGridItem = ref(null)
-onMounted(() => {
-  import('naive-ui').then((module) => {
-    NGrid.value = module.NGrid
-    NGridItem.value = module.NGridItem
-  })
-})
+// const NGrid = ref(null)
+// const NGridItem = ref(null)
+// onMounted(() => {
+//   import('naive-ui').then((module) => {
+//     NGrid.value = module.NGrid
+//     NGridItem.value = module.NGridItem
+//   })
+// })
 
 const props = defineProps<{
   data: LibraryData[]

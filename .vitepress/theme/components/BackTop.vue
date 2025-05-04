@@ -1,13 +1,4 @@
-<script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
-const NBackTop = ref(null)
-onMounted(() => {
-  import('naive-ui').then((module) => {
-    NBackTop.value = module.NBackTop
-  })
-})
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <NBackTop :right="100" :bottom="40">

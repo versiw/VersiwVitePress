@@ -13,7 +13,7 @@ import type { Options } from '@nolebase/vitepress-plugin-enhanced-readabilities/
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 
 import Layout from './components/Layout.vue'
-import MusicPlay from './components/MusicPlay.vue'
+// import MusicPlay from './components/MusicPlay.vue'
 import NavPage from './components/NavPage.vue'
 import Gallery from './components/Gallery.vue'
 import Library from './components/Library.vue'
@@ -58,7 +58,7 @@ export default {
       initCardEffect = module.initCardEffect
     }
 
-    app.component('MusicPlay', MusicPlay)
+    // app.component('MusicPlay', MusicPlay)
     app.component('NavPage', NavPage)
     app.component('Gallery', Gallery)
     app.component('Library', Library)
