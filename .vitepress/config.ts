@@ -1,12 +1,14 @@
 import { defineConfig, loadEnv } from 'vitepress'
 import { fileURLToPath } from 'node:url'
 import { cwd } from 'node:process'
-import path from 'node:path'
+import { join } from 'node:path'
 
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import { withSidebar } from 'vitepress-sidebar'
 
 import viteConfig from './vite.config'
+import navConfig from './nav.config'
+import sideBarConfig from './sideBar.config'
 
 /** @type {import('vitepress').UserConfig} */
 const vitePressOptions = (env) => {
@@ -78,57 +80,7 @@ const vitePressOptions = (env) => {
           }
         }
       },
-      nav: [
-        { text: '首页', link: '/' },
-        { text: '常用网站', link: '/nav' },
-        {
-          text: '前端',
-          items: [
-            {
-              text: '包管理器',
-              link: '前端/包管理器/npm 安裝'
-            },
-            {
-              text: 'VitePress',
-              link: '前端/VitePress/VitePress 实现主页 Logo 3D 旋转动态卡片检视效果'
-            }
-          ]
-        },
-        {
-          text: '后端',
-          items: [
-            {
-              text: 'Hadoop',
-              link: '后端/Hadoop/Hadoop HA高可用+Zookeeper搭建 一站式解決方案！！！'
-            }
-          ]
-        },
-        { text: '软件', link: '/软件' },
-        // { text: '阅读', link: '/book' },
-        {
-          text: '仓库链接',
-          items: [
-            {
-              text: 'VueElectronStarter',
-              link: 'https://versiw.github.io/VueElectronStarterDocs/'
-            },
-            { text: 'versiwfekit (前端工具集)', link: 'https://github.com/versiw/versiwfekit' }
-          ]
-        },
-        {
-          text: '作品集',
-          items: [
-            { text: '链路加密机对称密钥管理系统', link: 'gallery/encryptmachinemanager.md' },
-            { text: '二维码加密数字通行证系统', link: 'gallery/qrcode-pass.md' },
-            { text: 'Django招聘网站爬虫管理和数据分析系统', link: 'gallery/django-job-spider.md' },
-            { text: '微信小程序题库管理系统', link: 'gallery/wx-question.md' },
-            { text: 'Python房产信息采集和可视化分析', link: 'gallery/python-house-spider.md' }
-          ]
-        }
-        // {
-        //   component: 'MusicPlay'
-        // }
-      ],
+      nav: navConfig,
 
       socialLinks: [{ icon: 'github', link: 'https://github.com/versiw' }]
     },
@@ -142,7 +94,7 @@ const vitePressOptions = (env) => {
       config: (md) => {
         md.use(
           BiDirectionalLinks({
-            dir: path.join(cwd(), 'src'),
+            dir: join(cwd(), 'src'),
             baseDir: '/'
           })
         )
@@ -158,33 +110,7 @@ export default ({ mode }) => {
   // 加载环境变量
   const env = loadEnv(mode, fileURLToPath(new URL('../', import.meta.url)))
 
-  return defineConfig(
-    withSidebar(vitePressOptions(env), [
-      {
-        scanStartPath: 'src',
-        basePath: '/',
-        resolvePath: '/',
-        debugPrint: false
-      },
-      {
-        scanStartPath: 'src/前端',
-        basePath: '/前端/',
-        resolvePath: '/前端/',
-        sortMenusByName: true
-      },
-      {
-        scanStartPath: 'src/后端',
-        basePath: '/后端/',
-        resolvePath: '/后端/',
-        useTitleFromFrontmatter: true
-      },
-      {
-        scanStartPath: 'src/软件',
-        basePath: '/软件/',
-        resolvePath: '/软件/'
-      }
-    ])
-  )
+  return defineConfig(withSidebar(vitePressOptions(env), sideBarConfig))
 }
 
 // https://vitepress.dev/reference/site-config
