@@ -24,8 +24,8 @@ const data = ref({
 ● 编写Shell脚本，实现软件安装与环境配置自动化，提升系统部署效率。
     `,
     imgs: [
-        '/gallery/encryptmachinemanager/KMS运行界面.png',
-        '/gallery/encryptmachinemanager/KMS安装脚本运行.png',
+        '/images/gallery/encryptmachinemanager/KMS运行界面.png',
+        '/images/gallery/encryptmachinemanager/KMS安装脚本运行.png',
         ]
 } )
 </script>

@@ -3,7 +3,8 @@ export default [
     scanStartPath: 'src',
     basePath: '/',
     resolvePath: '/',
-    debugPrint: false
+    debugPrint: false,
+    excludePattern: ['gallery']
   },
   {
     scanStartPath: 'src/前端',

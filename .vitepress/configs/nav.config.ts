@@ -1,4 +1,4 @@
-import { getFirstFileFormRelativeSrcDir } from './utils'
+import { getFirstFileFormRelativeSrcDir } from '../utils'
 
 export default [
   { text: '首页', link: '/' },

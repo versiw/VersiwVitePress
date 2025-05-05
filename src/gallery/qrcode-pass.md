@@ -22,8 +22,8 @@ const data = ref({
 ● 运用Taro框架开发微信小程序端，实现了跨平台的功能一致性。
     `,
     imgs: [
-        '/gallery/qrcode-pass/1.png',
-        '/gallery/qrcode-pass/2.jpg',
+        '/images/gallery/qrcode-pass/1.png',
+        '/images/gallery/qrcode-pass/2.jpg',
         ]
 } )
 </script>

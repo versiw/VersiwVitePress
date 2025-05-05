@@ -21,19 +21,19 @@ hero:
 features:
   - title: 个人知识库
     icon:
-      src: /emoji/Spark.png
+      src: /images/emoji/Spark.png
       alt: 个人知识库
     details: 也许它可以是一个宝库
 
   - title: 网址导航
     icon:
-      src: /emoji/Ghost.png
+      src: /images/emoji/Ghost.png
       alt: 网址导航
     details: 希望能带你去往正确的地方
 
   - title: 巧技妙法
     icon:
-      src: /emoji/Robot.png
+      src: /images/emoji/Robot.png
       alt: 巧技妙法
     details: 真的对人类有帮助嘛
 ---
