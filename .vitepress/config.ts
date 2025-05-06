@@ -13,6 +13,9 @@ import navConfig from './configs/nav.config'
 import searchConfig from './configs/search.config'
 import sideBarConfig from './configs/sideBar.config'
 
+import { transformerMetaDiff } from './shikiTransformers/meta-diff'
+import { transformerMetaHighlight } from '@shikijs/transformers'
+
 const vitePressOptions = (env): UserConfig => {
   return {
     // VitePress's options here...
@@ -56,6 +59,7 @@ const vitePressOptions = (env): UserConfig => {
         // 默认禁用；设置为 true 可为所有图片启用懒加载。
         lazyLoading: true
       },
+      codeTransformers: [transformerMetaHighlight(), transformerMetaDiff()],
       config: (md) => {
         md.use(
           BiDirectionalLinks({
