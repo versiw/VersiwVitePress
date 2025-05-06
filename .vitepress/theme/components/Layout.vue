@@ -5,6 +5,9 @@ import { nextTick, provide } from 'vue'
 import { darkTheme } from 'naive-ui'
 const { isDark } = useData()
 
+import VisitData from './VisitData.vue'
+import BackTop from './BackTop.vue'
+
 // 检测浏览器是否支持 View Transitions API  && 检查用户是否偏好减少动画
 const enableTransitions = () =>
   'startViewTransition' in document &&
@@ -43,13 +46,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 <template>
   <NConfigProvider :theme="isDark ? darkTheme : undefined" preflight-style-disabled>
     <DefaultTheme.Layout>
-      <!-- <template #nav-bar-title-after>
-        <img
-          src="https://visitor-badge.laobi.icu/badge?page_id=versiw.VersiwVitePress&left_color=%23e0c3fc&right_color=%23a6c1ee"
-          alt="versiw.VersiwVitePress visitor badge"
-          style="margin-left: 10px"
-        />
-      </template> -->
+      <template #home-hero-actions-after>
+        <VisitData />
+      </template>
       <template #home-hero-image>
         <ClientOnly>
           <div class="custom-hero-image-container">

@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme-without-fonts'
-import { EnhanceAppContext } from 'vitepress'
+import { EnhanceAppContext, inBrowser } from 'vitepress'
 import { h, nextTick, onMounted } from 'vue'
 import { NolebaseHighlightTargetedHeading } from '@nolebase/vitepress-plugin-highlight-targeted-heading/client'
 import '@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css'
@@ -17,9 +17,10 @@ import Layout from './components/Layout.vue'
 import NavPage from './components/NavPage.vue'
 import Gallery from './components/Gallery.vue'
 import Library from './components/Library.vue'
-import BackTop from './components/BackTop.vue'
 import BlurReveal from './components/inspira-ui/BlurReveal.vue'
 import GiscusComment from './components/GiscusComment.vue'
+
+import useVisitData from './hooks/useVisitData'
 
 import './styles/index.scss'
 
@@ -36,6 +37,12 @@ export default {
   },
 
   async enhanceApp({ app, router, siteData }: EnhanceAppContext) {
+    if (inBrowser) {
+      // 网站访问量统计，路由加载完成，在加载页面组件后（在更新页面组件之前）调用。
+      router.onAfterPageLoad = (to: string) => {
+        useVisitData()
+      }
+    }
     /**
      * Nólëbase 集成 阅读增强 配置
      * https://nolebase-integrations.ayaka.io/pages/zh-CN/integrations/vitepress-plugin-enhanced-readabilities/#%E9%85%8D%E7%BD%AE
@@ -62,7 +69,6 @@ export default {
     app.component('NavPage', NavPage)
     app.component('Gallery', Gallery)
     app.component('Library', Library)
-    app.component('BackTop', BackTop)
     app.component('BlurReveal', BlurReveal)
 
     // SPA切换页面导致监听事件丢失
