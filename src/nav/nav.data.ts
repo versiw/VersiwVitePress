@@ -31,6 +31,12 @@ export const navDatas: NavData[] = [
         title: 'Uiverse',
         desc: '最大的开源用户界面元素库',
         link: 'https://uiverse.io'
+      },
+      {
+        icon: 'https://inspira-ui.com/logo.svg',
+        title: 'Inspira UI',
+        desc: '使用shadcn-vue、motion-v和TailwindCSS构建可重用组件',
+        link: 'https://inspira-ui.com/'
       }
     ]
   },

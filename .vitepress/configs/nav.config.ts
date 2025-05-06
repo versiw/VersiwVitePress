@@ -7,12 +7,12 @@ export default [
     text: '前端',
     items: [
       {
-        text: '包管理器',
-        link: getFirstFileFormRelativeSrcDir('前端/包管理器')
-      },
-      {
         text: 'VitePress',
         link: getFirstFileFormRelativeSrcDir('前端/VitePress')
+      },
+      {
+        text: '包管理器',
+        link: getFirstFileFormRelativeSrcDir('前端/包管理器')
       }
     ]
   },
