@@ -1,12 +1,11 @@
 # https://github.com/marketplace/actions/netlify-actions
 
-name: Build and Deploy to Netlify
+name: Deploy VitePress site to Netlify
 
 on:
   push:
+    branches: [main]
   pull_request:
-
-  # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
 
 env:
@@ -34,12 +33,14 @@ jobs:
         run: npm install
 
       - name: Build with VitePress
+        env:
+          VITE_BASE: /
         run: npm run docs:build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: '.vitepress/dist'
+          publish-dir: .vitepress/dist
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: 'Deploy from GitHub Actions'
@@ -49,4 +50,3 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          VITE_BASE: /
