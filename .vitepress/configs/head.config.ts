@@ -11,17 +11,7 @@ const headConfig = (env): HeadConfig[] => {
         defer: '',
         async: '',
         src: 'https://umami.versiw.com/script.js',
-        'data-website-id': 'c50730fb-e245-4518-b757-44e58d397989'
-      }
-    ],
-    // Umami versiw.netlify.app
-    [
-      'script',
-      {
-        defer: '',
-        async: '',
-        src: 'https://umami.versiw.com/script.js',
-        'data-website-id': 'cc8a7cdd-4864-4cd3-a374-9051c5064714'
+        'data-website-id': '5e7fc3a6-8633-44a5-bdef-dfbddffe8630'
       }
     ],
     // Umami versiw.github.io
@@ -31,7 +21,7 @@ const headConfig = (env): HeadConfig[] => {
         defer: '',
         async: '',
         src: 'https://umami.versiw.com/script.js',
-        'data-website-id': 'f516de8c-ed2a-483b-b34b-7d7760a7586d'
+        'data-website-id': 'bc244f39-25d2-4962-acf1-8de61d13a29d'
       }
     ],
     [
