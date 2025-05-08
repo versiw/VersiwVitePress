@@ -7,6 +7,7 @@ const { isDark } = useData()
 
 import VisitData from './features/VisitData.vue'
 import BackTop from './features/BackTop.vue'
+import AnnouncementBar from './features/AnnouncementBar.vue'
 
 // 检测浏览器是否支持 View Transitions API  && 检查用户是否偏好减少动画
 const enableTransitions = () =>
@@ -51,6 +52,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     preflight-style-disabled
   >
     <DefaultTheme.Layout>
+      <template #home-hero-info-before>
+        <AnnouncementBar />
+      </template>
       <template #home-hero-actions-after>
         <VisitData src="https://umami.versiw.com/share/nOYbjdbGnPmgkE3x/docs.versiw.com" />
       </template>
