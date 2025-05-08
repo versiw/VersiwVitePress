@@ -23,32 +23,34 @@ const slugify = (str) => {
       <a class="header-anchor" :href="`#${slugify(group)}`" aria-hidden="true"></a>
     </h2>
 
-    <NGrid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="12" :y-gap="8">
-      <NGridItem v-for="item in items">
-        <a :href="item.link" target="_blank">
-          <NCard hoverable size="small" embedded class="card" header-extra-class="header-extra">
-            <template #header>
-              <NEllipsis :line-clamp="2">
-                {{ item.title }}
-              </NEllipsis>
-            </template>
-            <template #header-extra>
-              <NAvatar
-                size="small"
-                :src="item.icon"
-                lazy
-                :intersection-observer-options="{ root: null }"
-              />
-            </template>
-            <template #default>
-              <NEllipsis :line-clamp="2">
-                {{ item.desc }}
-              </NEllipsis>
-            </template>
-          </NCard>
-        </a>
-      </NGridItem>
-    </NGrid>
+    <ClientOnly>
+      <NGrid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="12" :y-gap="8">
+        <NGridItem v-for="item in items">
+          <a :href="item.link" target="_blank">
+            <NCard hoverable size="small" embedded class="card" header-extra-class="header-extra">
+              <template #header>
+                <NEllipsis :line-clamp="2">
+                  {{ item.title }}
+                </NEllipsis>
+              </template>
+              <template #header-extra>
+                <NAvatar
+                  size="small"
+                  :src="item.icon"
+                  lazy
+                  :intersection-observer-options="{ root: null }"
+                />
+              </template>
+              <template #default>
+                <NEllipsis :line-clamp="2">
+                  {{ item.desc }}
+                </NEllipsis>
+              </template>
+            </NCard>
+          </a>
+        </NGridItem>
+      </NGrid>
+    </ClientOnly>
   </div>
 </template>
 
