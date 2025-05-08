@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { withBase } from 'vitepress'
+import BlurReveal from '../inspira-ui/BlurReveal.vue'
 
 const props = defineProps<{
   data: GalleryData
@@ -56,9 +57,9 @@ const props = defineProps<{
   white-space: pre-wrap;
 }
 
-.gallery-carousel {
-  /* background-color: rgb(229, 229, 229); */
-}
+/* .gallery-carousel {
+  background-color: rgb(229, 229, 229);
+} */
 
 .gallery-carousel-img {
   width: 100%;

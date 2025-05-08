@@ -1,15 +1,13 @@
-/* .vitepress/theme/styles/my-fonts.css */
+// @font-face {
+//   font-family: 'LXGWWenKaiGBScreenR';
+//   src: url('/fonts/LXGWWenKaiGBScreenR.ttf');
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: 'LXGWWenKaiGBScreenR';
-  src: url('/fonts/LXGWWenKaiGBScreenR.ttf');
-  font-display: swap;
-}
-
-:root {
-  --vp-font-family-base:
-    'LXGWWenKaiGBScreenR', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --vp-font-family-mono:
-    'Consolas', ui-monospace, 'Menlo', 'Monaco', 'Liberation Mono', 'Courier New', monospace;
-}
+// :root {
+//   --vp-font-family-base:
+//     'LXGWWenKaiGBScreenR', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+//     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+//   --vp-font-family-mono:
+//     'Consolas', ui-monospace, 'Menlo', 'Monaco', 'Liberation Mono', 'Courier New', monospace;
+// }

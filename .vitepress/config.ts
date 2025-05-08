@@ -18,7 +18,6 @@ import { transformerMetaHighlight } from '@shikijs/transformers'
 
 const vitePressOptions = (env): UserConfig => {
   return {
-    // VitePress's options here...
     // 站点元数据
     title: '诗维',
     description: '基于 VitePress 构建的个人知识库',
@@ -47,6 +46,11 @@ const vitePressOptions = (env): UserConfig => {
           timeStyle: 'medium'
         }
       },
+      darkModeSwitchLabel: '切换主题',
+      lightModeSwitchTitle: '切换至浅色模式',
+      darkModeSwitchTitle: '切换至深色模式',
+      sidebarMenuLabel: '导航',
+      returnToTopLabel: '回到顶部',
       search: searchConfig,
       nav: navConfig,
 

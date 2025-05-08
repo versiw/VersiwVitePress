@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+
+const props = defineProps<{
+  /**用于跳转外部网站数据统计 */
+  src?: string
+}>()
+
 const pagePV = ref(0)
 const sitePV = ref(0)
 const siteUV = ref(0)
@@ -60,13 +66,17 @@ function parseCount(text) {
   <NGrid class="visit-data-class" :cols="2">
     <NGridItem id="vercount_container_site_pv" style="display: none">
       <NStatistic label="本站总访问量" tabular-nums>
-        <NNumberAnimation show-separator :from="0" :to="sitePV" />
+        <a :href="src && src.trim() ? src : undefined" target="_blank">
+          <NNumberAnimation show-separator :from="0" :to="sitePV" />
+        </a>
         <template #suffix> 次 </template>
       </NStatistic>
     </NGridItem>
     <NGridItem id="vercount_container_site_uv" style="display: none">
       <NStatistic label="本站总访客数" tabular-nums>
-        <NNumberAnimation show-separator :from="0" :to="siteUV" />
+        <a :href="src && src.trim() ? src : undefined" target="_blank">
+          <NNumberAnimation show-separator :from="0" :to="siteUV" />
+        </a>
         <template #suffix> 人 </template>
       </NStatistic>
     </NGridItem>

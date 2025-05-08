@@ -2,11 +2,11 @@
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme-without-fonts'
 import { nextTick, provide } from 'vue'
-import { darkTheme } from 'naive-ui'
+import { darkTheme, zhCN, dateZhCN } from 'naive-ui'
 const { isDark } = useData()
 
-import VisitData from './VisitData.vue'
-import BackTop from './BackTop.vue'
+import VisitData from './features/VisitData.vue'
+import BackTop from './features/BackTop.vue'
 
 // 检测浏览器是否支持 View Transitions API  && 检查用户是否偏好减少动画
 const enableTransitions = () =>
@@ -44,17 +44,20 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <NConfigProvider :theme="isDark ? darkTheme : undefined" preflight-style-disabled>
+  <NConfigProvider
+    :theme="isDark ? darkTheme : undefined"
+    :locale="zhCN"
+    :date-locale="dateZhCN"
+    preflight-style-disabled
+  >
     <DefaultTheme.Layout>
       <template #home-hero-actions-after>
-        <VisitData />
+        <VisitData src="https://umami.versiw.com/share/nOYbjdbGnPmgkE3x/docs.versiw.com" />
       </template>
       <template #home-hero-image>
-        <ClientOnly>
-          <div class="custom-hero-image-container">
-            <img class="VPImage image-src" src="/versiw.svg" alt="诗维 - Versiw" />
-          </div>
-        </ClientOnly>
+        <div class="custom-hero-image-container">
+          <img class="VPImage image-src" src="/versiw.svg" alt="诗维 - Versiw" />
+        </div>
       </template>
       <template #nav-bar-content-after>
         <slot name="nav-bar-content-after" />

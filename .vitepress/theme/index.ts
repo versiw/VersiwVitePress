@@ -13,12 +13,9 @@ import type { Options } from '@nolebase/vitepress-plugin-enhanced-readabilities/
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 
 import Layout from './components/Layout.vue'
-// import MusicPlay from './components/MusicPlay.vue'
-import NavPage from './components/NavPage.vue'
-import Gallery from './components/Gallery.vue'
-import Library from './components/Library.vue'
-import BlurReveal from './components/inspira-ui/BlurReveal.vue'
-import GiscusComment from './components/GiscusComment.vue'
+import NavPage from './components/pages/NavPage.vue'
+import Gallery from './components/pages/Gallery.vue'
+import GiscusComment from './components/features/GiscusComment.vue'
 
 import useVisitData from './hooks/useVisitData'
 
@@ -37,8 +34,8 @@ export default {
   },
 
   async enhanceApp({ app, router, siteData }: EnhanceAppContext) {
+    /** 网站访问量统计，路由加载完成，在加载页面组件后（在更新页面组件之前）调用。 */
     if (inBrowser) {
-      // 网站访问量统计，路由加载完成，在加载页面组件后（在更新页面组件之前）调用。
       router.onAfterPageLoad = (to: string) => {
         useVisitData()
       }
@@ -65,11 +62,8 @@ export default {
       initCardEffect = module.initCardEffect
     }
 
-    // app.component('MusicPlay', MusicPlay)
     app.component('NavPage', NavPage)
     app.component('Gallery', Gallery)
-    app.component('Library', Library)
-    app.component('BlurReveal', BlurReveal)
 
     // SPA切换页面导致监听事件丢失
     router.onAfterRouteChange = () => {

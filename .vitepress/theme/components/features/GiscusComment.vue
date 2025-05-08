@@ -1,13 +1,15 @@
 <script setup>
 import Giscus from '@giscus/vue'
 import { useRoute, useData } from 'vitepress'
+const { frontmatter } = useData()
+const comment = computed(() => frontmatter.value?.comment !== false)
 
 const route = useRoute()
 const { isDark } = useData()
 </script>
 
 <template>
-  <div style="margin-top: 24px">
+  <div v-if="comment" style="margin-top: 24px">
     <Giscus
       id="comments"
       repo="versiw/VersiwVitePress"
