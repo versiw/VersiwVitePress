@@ -1,97 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { withBase } from 'vitepress'
+
+const backTopRef = ref(null)
+</script>
 
 <template>
-  <NBackTop :right="100" :bottom="40">
-    <div class="spinner-box">
-      <div class="configure-border-1">
-        <div class="configure-core"></div>
-      </div>
-      <div class="configure-border-2">
-        <div class="configure-core"></div>
-      </div>
-    </div>
-  </NBackTop>
+  <div ref="backTopRef">
+    <NBackTop :right="100" :bottom="40" :to="backTopRef">
+      <img
+        :src="withBase('/images/emoji/Rocket.png')"
+        alt="Rocket 返回顶部"
+        width="50"
+        height="50"
+      />
+    </NBackTop>
+  </div>
 </template>
 
-<style lang="css" scoped>
-/* From Uiverse.io by csozidev */
-/*
- I DID NOT MAKE THIS! THIS IS JUST A REPOST FROM: 
- codepen.io/AlexWarnes/pen/jXYYKL 
- My website: english.csozi.hu*/
-
-.configure-border-1 {
-  width: 50px;
-  height: 50px;
-  padding: 3px;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fb5b53;
-  animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
-}
-
-.configure-border-2 {
-  width: 50px;
-  height: 50px;
-  padding: 3px;
-  left: -50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(63, 249, 220);
-  transform: rotate(45deg);
-  animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
-}
-
-.configure-core {
-  width: 100%;
-  height: 100%;
-  background-color: #1d2630;
-}
-
-@keyframes configure-clockwise {
-  0% {
-    transform: rotate(0);
-  }
-
-  25% {
-    transform: rotate(90deg);
-  }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  75% {
-    transform: rotate(270deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes configure-xclockwise {
-  0% {
-    transform: rotate(45deg);
-  }
-
-  25% {
-    transform: rotate(-45deg);
-  }
-
-  50% {
-    transform: rotate(-135deg);
-  }
-
-  75% {
-    transform: rotate(-225deg);
-  }
-
-  100% {
-    transform: rotate(-315deg);
-  }
+<style lang="scss" scoped>
+::v-deep .n-back-top {
+  background-color: transparent !important;
+  box-shadow: unset !important;
 }
 </style>
