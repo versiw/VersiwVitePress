@@ -40,9 +40,16 @@ const newArticles = articles.slice(0, 3).map((article) => {
         <a :href="withBase(article.url)">
           <div class="banner">
             <span class="banner-text">NEW</span>
-            <span class="banner-text">GO TO !</span>
+            <span class="banner-text">GO TO</span>
           </div>
-          <span class="card__title">最新文章</span>
+          <span class="card__title"
+            ><img
+              :src="withBase('/images/emoji/Party Popper.png')"
+              width="24"
+              height="24"
+              style="display: inline"
+            />&nbsp;最新记录</span
+          >
           <p class="card__date">{{ article.date }}</p>
           <p class="card__subtitle">《{{ article.title }}》</p>
         </a>
@@ -51,11 +58,11 @@ const newArticles = articles.slice(0, 3).map((article) => {
   </ClientOnly>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .announcement-bar {
   width: 380px;
   height: 170px;
-  margin: 1em;
+  margin: 0.5em;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -67,13 +74,19 @@ const newArticles = articles.slice(0, 3).map((article) => {
 }
 
 /* From Uiverse.io by 0xnihilism */
+$bg-color: var(--vp-c-bg-elv);
+$border-color: var(--vp-c-text-1);
+$title-color: var(--vp-c-text-1);
+$subtitle-color: var(--vp-c-text-2);
+$rainbow-color: var(--vp-c-brand-1);
+
 .card {
   width: 320px;
-  padding: 15px;
-  background: #fff;
-  border: 8px solid #000;
-  box-shadow: 15px 15px 0 #000;
-  transform: rotate(-2deg);
+  padding: 18px;
+  background: $bg-color;
+  border: 4px solid $border-color;
+  box-shadow: 8px 8px 0 $border-color;
+  transform: rotate(-3deg);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -84,14 +97,14 @@ const newArticles = articles.slice(0, 3).map((article) => {
 }
 .card:hover {
   transform: rotate(0deg) scale(1.02);
-  box-shadow: 20px 20px 0 #000;
+  box-shadow: 15px 15px 0 $border-color;
 }
 .banner {
   position: absolute;
   top: 3px;
   right: -120px;
-  background: #000;
-  color: #fff;
+  background: $border-color;
+  color: $bg-color;
   padding: 15px;
   width: 350px;
   text-align: center;
@@ -126,29 +139,29 @@ const newArticles = articles.slice(0, 3).map((article) => {
   transform: translateY(60%);
 }
 .card:hover .banner {
-  background: red;
+  background: $rainbow-color;
 }
 .card__title {
   font-size: 24px;
   font-weight: 700;
-  color: #000;
+  color: $border-color;
   text-transform: uppercase;
   margin-bottom: 5px;
   display: block;
-  border-bottom: 2px solid #000;
-  width: 45%; /* or any other percentage or pixel value */
+  border-bottom: 2px solid $border-color;
+  width: 50%; /* or any other percentage or pixel value */
 }
 
 .card__date {
   font-size: 14px;
   line-height: 1.4;
-  color: #333;
+  color: $subtitle-color;
 }
 
 .card__subtitle {
   font-size: 16px;
   line-height: 1.4;
-  color: #333;
+  color: $subtitle-color;
   /* margin-top: 20px; */
   padding-bottom: 10px;
 }
