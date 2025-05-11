@@ -9,7 +9,7 @@ publish: true
 
 ## giscus 介绍
 
-利用 [GitHub Discussions](https://docs.github.com/en/discussions) 实现的评论系统。
+[giscus](https://giscus.app/zh-CN) 利用 [GitHub Discussions](https://docs.github.com/en/discussions) 实现的评论系统，让访客借助 GitHub 在你的网站上留下评论和反应吧！
 
 ## 如何运作
 
