@@ -1,70 +1,175 @@
 <style scoped>
 .loader {
-  width: 20em;
-  height: 3em;
+  --path: var(--vp-c-text-1);
+  --dot: #5628ee;
+  --duration: 3s;
+  width: 44px;
+  height: 44px;
   position: relative;
-  overflow: hidden;
-  border-bottom: 8px solid #000;
-  filter: url(#goo);
 }
 
-.loader::before {
+.loader:before {
   content: '';
-  width: 22em;
-  height: 18em;
-  background: #f00;
-  position: absolute;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  left: -2em;
-  bottom: -18em;
-  animation: wee1 2s linear infinite;
+  position: absolute;
+  display: block;
+  background: var(--dot);
+  top: 37px;
+  left: 19px;
+  transform: translate(-18px, -18px);
+  animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 }
 
-.loader::after {
-  content: '';
-  width: 16em;
-  height: 12em;
-  background: #0ff;
-  position: absolute;
-  border-radius: 50%;
-  left: -4em;
-  bottom: -12em;
-  animation: wee2 2s linear infinite 0.75s;
+.loader svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes wee1 {
-  0% {
-    transform: translateX(-10em) rotate(0deg);
+.loader svg rect,
+.loader svg polygon,
+.loader svg circle {
+  fill: none;
+  stroke: var(--path);
+  stroke-width: 10px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.loader svg polygon {
+  stroke-dasharray: 145 76 145 76;
+  stroke-dashoffset: 0;
+  animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg rect {
+  stroke-dasharray: 192 64 192 64;
+  stroke-dashoffset: 0;
+  animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg circle {
+  stroke-dasharray: 150 50 150 50;
+  stroke-dashoffset: 75;
+  animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader.triangle {
+  width: 48px;
+}
+
+.loader.triangle:before {
+  left: 21px;
+  transform: translate(-10px, -18px);
+  animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+@keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
+  }
+
+  66% {
+    stroke-dashoffset: 147;
   }
 
   100% {
-    transform: translateX(7em) rotate(180deg);
+    stroke-dashoffset: 221;
   }
 }
 
-@keyframes wee2 {
-  0% {
-    transform: translateX(-8em) rotate(0deg);
+@keyframes dotTriangle {
+  33% {
+    transform: translate(0, 0);
+  }
+
+  66% {
+    transform: translate(10px, -18px);
   }
 
   100% {
-    transform: translateX(8em) rotate(180deg);
+    transform: translate(-10px, -18px);
   }
+}
+
+@keyframes pathRect {
+  25% {
+    stroke-dashoffset: 64;
+  }
+
+  50% {
+    stroke-dashoffset: 128;
+  }
+
+  75% {
+    stroke-dashoffset: 192;
+  }
+
+  100% {
+    stroke-dashoffset: 256;
+  }
+}
+
+@keyframes dotRect {
+  25% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(18px, -18px);
+  }
+
+  75% {
+    transform: translate(0, -36px);
+  }
+
+  100% {
+    transform: translate(-18px, -18px);
+  }
+}
+
+@keyframes pathCircle {
+  25% {
+    stroke-dashoffset: 125;
+  }
+
+  50% {
+    stroke-dashoffset: 175;
+  }
+
+  75% {
+    stroke-dashoffset: 225;
+  }
+
+  100% {
+    stroke-dashoffset: 275;
+  }
+}
+
+.loader {
+  display: inline-block;
+  margin: 0 16px;
 }
 </style>
 
 <template>
-  <svg style="position: absolute; width: 0; height: 0">
-    <filter id="goo">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="12"></feGaussianBlur>
-      <feColorMatrix
-        values="0 0 0 0 0 
-              0 0 0 0 0 
-              0 0 0 0 0 
-              0 0 0 48 -7"
-      ></feColorMatrix>
-    </filter>
-  </svg>
+  <div class="loader">
+    <svg viewBox="0 0 80 80">
+      <circle r="32" cy="40" cx="40" id="test"></circle>
+    </svg>
+  </div>
 
-  <div class="loader"></div>
+  <div class="loader triangle">
+    <svg viewBox="0 0 86 80">
+      <polygon points="43 8 79 72 7 72"></polygon>
+    </svg>
+  </div>
+
+  <div class="loader">
+    <svg viewBox="0 0 80 80">
+      <rect height="64" width="64" y="8" x="8"></rect>
+    </svg>
+  </div>
 </template>
