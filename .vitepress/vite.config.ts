@@ -20,17 +20,17 @@ export default defineConfig({
     Components({
       resolvers: [NaiveUiResolver()]
     }),
+    compression(),
+    chunkSplitPlugin({
+      strategy: 'single-vendor',
+      customSplitting: {}
+    }),
     visualizer({
       filename: 'stats.html',
       gzipSize: true,
       brotliSize: true,
       emitFile: false,
       open: false
-    }),
-    compression(),
-    chunkSplitPlugin({
-      strategy: 'single-vendor',
-      customSplitting: {}
     })
   ],
   build: {

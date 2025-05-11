@@ -10,3 +10,4 @@
 **/dist
 **/cache
 src/**/*.md
+src/public/**/*

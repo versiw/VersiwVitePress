@@ -1,5 +1,10 @@
 {
   "type": "module",
+  "author": {
+    "name": "versiw",
+    "email": "stao.ding@qq.com",
+    "url": "https://github.com/versiw"
+  },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",

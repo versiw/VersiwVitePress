@@ -47,7 +47,7 @@ const vitePressOptions = (env): UserConfig => {
         }
       },
       darkModeSwitchLabel: '切换主题',
-      lightModeSwitchTitle: '切换至浅色模式',
+      lightModeSwitchTitle: '切换至明亮模式',
       darkModeSwitchTitle: '切换至深色模式',
       sidebarMenuLabel: '导航',
       returnToTopLabel: '回到顶部',
