@@ -113,6 +113,12 @@ export const navDatas: NavData[] = [
         title: 'Vue I18n',
         desc: '适用于 Vue.js 的国际化插件',
         link: 'https://vue-i18n.intlify.dev/'
+      },
+      {
+        icon: 'https://dayjs.fenxianglu.cn/assets/favicon.png',
+        title: 'Day.js中文网',
+        desc: 'Day.js是一个极简的JavaScript库,可以为现代浏览器解析、验证、操作和显示日期和时间。',
+        link: 'https://dayjs.fenxianglu.cn/'
       }
     ]
   },
@@ -153,6 +159,52 @@ export const navDatas: NavData[] = [
         title: 'Gradient Magic',
         desc: '精彩而独特的 CSS 渐变免费画廊',
         link: 'https://www.gradientmagic.com/'
+      }
+    ]
+  },
+  {
+    group: '调试工具',
+    items: [
+      {
+        icon: 'https://www.diggui.com/favicon.ico',
+        title: 'DiG GUI',
+        desc: 'DiG Web 界面在线调试',
+        link: 'https://www.diggui.com/'
+      },
+      {
+        icon: 'https://dnschecker.org/themes/common/images/general/favicon-32.png',
+        title: 'DNS Check',
+        desc: 'DNS 全球传播测试',
+        link: 'https://dnschecker.org/'
+      }
+    ]
+  },
+  {
+    group: '云服务与托管平台',
+    items: [
+      {
+        icon: 'https://www.cloudflare-cn.com/favicon.ico',
+        title: 'Cloudflare',
+        desc: '全球最著名的 CDN 加速服务商',
+        link: 'https://www.cloudflare-cn.com/'
+      },
+      {
+        icon: 'https://www.netlify.com/favicon/icon.svg',
+        title: 'Netlify',
+        desc: '现代化静态网站托管平台,全球 CDN 加速',
+        link: 'https://www.netlify.com/'
+      },
+      {
+        icon: 'https://supabase.com/favicon/favicon.ico',
+        title: 'Supabase',
+        desc: '一个开源的Firebase替代品。',
+        link: 'hhttps://supabase.com/'
+      },
+      {
+        icon: 'https://umami.is/favicon.ico',
+        title: 'Umami',
+        desc: '一个开源的、以隐私为中心的网站分析工具',
+        link: 'https://umami.is/'
       }
     ]
   },

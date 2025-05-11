@@ -26,7 +26,7 @@ const slugify = (str) => {
     <ClientOnly>
       <NGrid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="12" :y-gap="8">
         <NGridItem v-for="item in items">
-          <a :href="item.link" target="_blank">
+          <a :href="item.link" target="_blank" :data-umami-event="'导航 - ' + item.title">
             <NCard hoverable size="small" embedded class="card" header-extra-class="header-extra">
               <template #header>
                 <NEllipsis :line-clamp="2">
