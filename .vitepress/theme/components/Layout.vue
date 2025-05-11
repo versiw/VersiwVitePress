@@ -5,9 +5,10 @@ import { nextTick, provide } from 'vue'
 import { darkTheme, zhCN, dateZhCN } from 'naive-ui'
 const { isDark } = useData()
 
-import VisitData from './features/VisitData.vue'
+import VercountAnalytics from './features/VercountAnalytics.vue'
 import BackTop from './features/BackTop.vue'
 import AnnouncementBar from './features/AnnouncementBar.vue'
+import DocsFooter from './features/DocsFooter.vue'
 
 // 检测浏览器是否支持 View Transitions API  && 检查用户是否偏好减少动画
 const enableTransitions = () =>
@@ -56,7 +57,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
         <AnnouncementBar />
       </template>
       <template #home-hero-actions-after>
-        <VisitData src="https://umami.versiw.com/share/nOYbjdbGnPmgkE3x/docs.versiw.com" />
+        <VercountAnalytics src="https://umami.versiw.com/share/nOYbjdbGnPmgkE3x/docs.versiw.com" />
       </template>
       <template #home-hero-image>
         <div class="custom-hero-image-container">
@@ -74,6 +75,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       </template>
       <template #doc-after>
         <slot name="doc-after" />
+        <DocsFooter show-author />
       </template>
     </DefaultTheme.Layout>
   </NConfigProvider>
