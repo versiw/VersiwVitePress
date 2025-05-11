@@ -1,5 +1,6 @@
 import { inBrowser } from 'vitepress'
 import type { Router } from 'vitepress'
+import { composeHandlers } from '../lib/compose'
 
 /**
  * 初始化 Vercount 访问统计脚本
@@ -21,8 +22,6 @@ export function setupAnalytics(router: Router) {
    * 在路由加载完成后初始化统计脚本
    */
   if (inBrowser) {
-    router.onAfterPageLoad = (to: string) => {
-      initVercountAnalytics()
-    }
+    router.onAfterPageLoad = composeHandlers(router.onAfterPageLoad, () => initVercountAnalytics())
   }
 }

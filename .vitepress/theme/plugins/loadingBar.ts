@@ -1,5 +1,6 @@
 import { createDiscreteApi } from 'naive-ui'
 import { Router } from 'vitepress'
+import { composeHandlers } from '../lib/compose'
 
 const { loadingBar } = createDiscreteApi(['loadingBar'], {
   loadingBarProviderProps: {
@@ -13,7 +14,5 @@ export const setupLoadingBar = (router: Router) => {
     loadingBar.start()
   }
 
-  router.onAfterPageLoad = () => {
-    loadingBar.finish()
-  }
+  router.onAfterPageLoad = composeHandlers(router.onAfterPageLoad, () => loadingBar.finish())
 }
