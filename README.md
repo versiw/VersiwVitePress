@@ -8,7 +8,7 @@
 <p align="center">
     <a href="https://github.com/versiw/VersiwVitePress/actions/workflows/deploy.yml" rel="noopener noreferrer" ><img src="https://img.shields.io/github/actions/workflow/status/versiw/VersiwVitePress/deploy.yml" alt="Deploy VitePress site to Pages"></a>
     <a href="https://app.netlify.com"rel="noopener noreferrer" ><img src="https://api.netlify.com/api/v1/badges/88675ff9-4989-41cf-8ea7-868d8aae2fae/deploy-status?branch=main" alt="Netlify Status"></a>
-    <a href="./LICENSE-MIT" rel="noopener noreferrer" ><img src="https://img.shields.io/github/license/versiw/VersiwVitePress?style=flat" alt="MIT License"></a>
+    <a href="./LICENSE" rel="noopener noreferrer" ><img src="https://img.shields.io/github/license/versiw/VersiwVitePress?style=flat" alt="MIT License"></a>
     <a href="./LICENSE-CC-BY-4.0" rel="noopener noreferrer" ><img src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg" alt="MIT License"></a>
     
     
@@ -78,7 +78,7 @@ npm run docs:dev
 
 #### 代码部分​
 
-[本仓库](https://github.com/versiw/VersiwVitePress)中的程序代码（不含文档内容及其关联静态资源），遵循 [MIT License](./LICENSE-MIT)，允许自由下载、修改和使用。
+[本仓库](https://github.com/versiw/VersiwVitePress)中的程序代码（不含文档内容及其关联静态资源），遵循 [MIT License](./LICENSE)，允许自由下载、修改和使用。
 
 #### 文档内容
 
