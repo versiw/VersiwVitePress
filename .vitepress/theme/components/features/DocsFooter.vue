@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { createDiscreteApi } from 'naive-ui'
 import * as packageObj from '../../../../package.json'
+import { message } from '../../hooks/useCreateDiscreteApi'
 
 interface Props {
   /**
@@ -38,13 +38,6 @@ const copyrightYears = computed(() => {
   return currentYear > docsFooterConfig.startYear
     ? `${docsFooterConfig.startYear}-${currentYear}`
     : docsFooterConfig.startYear.toString()
-})
-
-const { message } = createDiscreteApi(['message'], {
-  messageProviderProps: {
-    placement: 'bottom',
-    keepAliveOnHover: false
-  }
 })
 
 const handleClick = () => {

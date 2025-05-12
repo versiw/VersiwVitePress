@@ -9,7 +9,7 @@ export function setupPlugins(ctx: EnhanceAppContext) {
   const { app, router, siteData } = ctx
   setupAnalytics(router)
   setupReadability(app)
-  setupCardEffect(app, router)
+  setupCardEffect(router)
   setupGlobalComponents(app)
   setupLoadingBar(router)
 }

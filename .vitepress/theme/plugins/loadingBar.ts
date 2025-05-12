@@ -1,12 +1,6 @@
-import { createDiscreteApi } from 'naive-ui'
 import { Router } from 'vitepress'
 import { composeHandlers } from '../lib/compose'
-
-const { loadingBar } = createDiscreteApi(['loadingBar'], {
-  loadingBarProviderProps: {
-    to: 'body'
-  }
-})
+import { loadingBar } from '../hooks/useCreateDiscreteApi'
 
 export const setupLoadingBar = (router: Router) => {
   if (typeof window === 'undefined') return
