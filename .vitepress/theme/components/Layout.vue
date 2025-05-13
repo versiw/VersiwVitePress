@@ -10,6 +10,12 @@ import BackTop from './features/BackTop.vue'
 import AnnouncementBar from './features/AnnouncementBar.vue'
 import DocsFooter from './features/DocsFooter.vue'
 
+const isGithubPages = ref(null)
+
+if (!import.meta.env.SSR) {
+  isGithubPages.value = window.location.hostname.endsWith('github.io')
+}
+
 // 检测浏览器是否支持 View Transitions API  && 检查用户是否偏好减少动画
 const enableTransitions = () =>
   'startViewTransition' in document &&
@@ -57,7 +63,13 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
         <AnnouncementBar />
       </template>
       <template #home-hero-actions-after>
-        <VercountAnalytics src="https://umami.versiw.com/share/nOYbjdbGnPmgkE3x/docs.versiw.com" />
+        <VercountAnalytics
+          :src="
+            isGithubPages
+              ? 'https://umami.versiw.com/share/KpWOYhaPoal5hmqU/versiw.github.io'
+              : 'https://umami.versiw.com/share/lP69zdwD9HJNboIo/docs.versiw.com'
+          "
+        />
       </template>
       <template #home-hero-image>
         <div class="custom-hero-image-container">

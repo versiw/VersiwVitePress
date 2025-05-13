@@ -29,8 +29,8 @@ const headConfig = (env) => {
           src: env.VITE_BASE + 'scripts/umm.js',
           'data-host-url': 'https://umami.versiw.com',
           'data-website-id': isGitHubPages
-            ? 'f516de8c-ed2a-483b-b34b-7d7760a7586d'
-            : 'c50730fb-e245-4518-b757-44e58d397989'
+            ? '656ea8ec-3ea1-4bd5-9ce3-2b87abd42c5c'
+            : '14a6bdb6-1972-4d51-8821-52f63c03713c'
         }
       ]
     )
