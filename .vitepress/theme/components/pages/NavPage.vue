@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from 'vitepress'
+
 const props = defineProps<{
   data: NavData[]
 }>()
@@ -36,7 +38,7 @@ const slugify = (str) => {
               <template #header-extra>
                 <NAvatar
                   size="small"
-                  :src="item.icon"
+                  :src="withBase(item.icon)"
                   lazy
                   :intersection-observer-options="{ root: null }"
                 />
