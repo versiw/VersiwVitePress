@@ -1,18 +1,5 @@
 <script setup lang="ts">
-// import { defineAsyncComponent, onMounted, ref } from 'vue'
-import { withBase } from 'vitepress'
-
-// const NGrid = defineAsyncComponent(() => import('naive-ui').then((m) => m.NGrid))
-// const NGridItem = defineAsyncComponent(() => import('naive-ui').then((m) => m.NGridItem))
-
-// const NGrid = ref(null)
-// const NGridItem = ref(null)
-// onMounted(() => {
-//   import('naive-ui').then((module) => {
-//     NGrid.value = module.NGrid
-//     NGridItem.value = module.NGridItem
-//   })
-// })
+import Book from '../uiverse/Book.vue'
 
 const props = defineProps<{
   data: LibraryData[]
@@ -32,32 +19,39 @@ const slugify = (str) => {
 </script>
 
 <template>
+  <NMarquee class="library-marquee">
+    ⚠️ 文件当前托管于 GitHub，页面显示加载、文件下载可能需要网络加速，页面优化中...
+  </NMarquee>
+
   <div v-for="{ group, items } in data">
     <h2 :id="slugify(group)" tabindex="-1">
       {{ group }}
       <a class="header-anchor" :href="`#${slugify(group)}`" aria-hidden="true"></a>
     </h2>
 
-    <NGrid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="12" :y-gap="8">
-      <NGridItem v-for="item in items" class="place-content-center p-10">
-        <Book class="book-item">
-          <BookHeader>
-            <!-- <Icon name="heroicons:book-open-solid" size="24" /> -->
-          </BookHeader>
-          <BookTitle>
-            <h1>{{ item.title }}</h1>
-          </BookTitle>
-          <BookDescription>
-            <p>{{ item.desc }}</p>
-          </BookDescription>
-        </Book>
-      </NGridItem>
-    </NGrid>
+    <ClientOnly>
+      <NGrid
+        class="library-grid"
+        cols="2 s:3 m:4 l:5 xl:6 2xl:7"
+        responsive="screen"
+        :x-gap="12"
+        :y-gap="36"
+      >
+        <NGridItem v-for="item in items" class="place-content-center p-10">
+          <Book :data="item" />
+        </NGridItem>
+      </NGrid>
+    </ClientOnly>
   </div>
 </template>
 
 <style>
-.book-item {
-  height: 200px;
+.library-marquee {
+  background-color: #f6e0bd;
+  color: black;
+  margin-top: 20px;
+}
+.library-grid {
+  margin: 30px 0;
 }
 </style>

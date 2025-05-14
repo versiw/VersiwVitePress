@@ -26,7 +26,7 @@ export default [
     ]
   },
   { text: '软件', link: getFirstFileFormRelativeSrcDir('软件') },
-  // { text: '阅读', link: '/book' },
+  { text: '阅读', link: '/book' },
   {
     text: '仓库链接',
     items: [
