@@ -113,8 +113,3 @@ npm run docs:dev
 如果这个项目对您有帮助，欢迎：
 
 - 在 [GitHub](https://github.com/versiw/VersiwVitePress) 上点个 ⭐️ Star，让更多人发现它！
-- 赞助支持开发，让项目持续优化
-
-  微信：
-
-  ![微信收款码](https://gcore.jsdelivr.net/gh/versiw/FavPic/images/微信收款码.jpg)
