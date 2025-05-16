@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import * as packageObj from '../../../../package.json'
-import { message } from '../../hooks/useCreateDiscreteApi'
+import { getMessage } from '../../hooks/useCreateDiscreteApi'
 
 interface Props {
   /**
@@ -42,6 +42,8 @@ const copyrightYears = computed(() => {
 
 const handleClick = () => {
   const fullUrl = window.location.href
+
+  const message = getMessage('bottom')
 
   navigator.clipboard
     .writeText(fullUrl)
