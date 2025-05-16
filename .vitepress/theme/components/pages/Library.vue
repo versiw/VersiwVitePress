@@ -20,7 +20,9 @@ const slugify = (str) => {
 
 <template>
   <NMarquee class="library-marquee">
-    ⚠️ 文件当前托管于 GitHub，页面显示加载、文件下载可能需要网络加速，页面优化中...
+    ⚠️ 1. 文件当前托管于 GitHub，页面显示加载、文件下载可能需要网络加速，页面优化中... ⚠️ 2.
+    声明：本站收录的资源链接（包括PDF、EPUB、网盘、BT等）均来源于网络公开信息，基于个人偏好整理分享。所有资源仅供学习交流使用，请于下载后24小时内删除。使用者需对资源合法性、安全性自行甄别，本站不承担任何直接或间接责任。
+    <span style="color: red">访问即视为同意本声明。</span>
   </NMarquee>
 
   <div v-for="{ group, items } in data">
