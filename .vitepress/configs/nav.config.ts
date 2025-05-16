@@ -28,6 +28,15 @@ export default [
   { text: '软件', link: getFirstFileFormRelativeSrcDir('软件') },
   { text: '阅读', link: '/book' },
   {
+    text: '其他',
+    items: [
+      {
+        text: '资源收录',
+        link: '/share'
+      }
+    ]
+  },
+  {
     text: '仓库链接',
     items: [
       {

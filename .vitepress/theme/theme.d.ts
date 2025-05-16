@@ -48,3 +48,36 @@ interface LibraryData {
   /**图书集合 */
   items: LibraryItem[]
 }
+
+type ShareTagValue =
+  | '720P'
+  | '1080P'
+  | '2K'
+  | '4K'
+  | '8K'
+  | '蓝光'
+  | '简中'
+  | '繁中'
+  | '英文'
+  | '无字幕'
+  | '收藏级'
+
+/**
+ * Share 数据
+ */
+interface ShareItem {
+  /** 资源分类 */
+  category: string
+  /** 资源名称 */
+  name: string
+  /** 资源下载方式 */
+  type: 'BT' | 'HTTP'
+  /** 资源链接 */
+  src: `http://${string}` | `https://${string}` | `magnet:?xt=urn:btih:${string}`
+  /** 资源标签 */
+  tags?: ShareTagValue[]
+  /** 文件哈希值 */
+  hash?: `md5:${string}` | `sha1:${string}` | `sha256:${string}`
+  /** 资源描述 */
+  desc?: string
+}
