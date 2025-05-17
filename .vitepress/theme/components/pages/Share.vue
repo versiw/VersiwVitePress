@@ -1,16 +1,6 @@
 <script setup lang="ts">
 import { useDebounceFn } from '@vueuse/core'
-import {
-  type DataTableColumns,
-  type PaginationProps,
-  NTag,
-  NMarquee,
-  NEllipsis,
-  NSpace,
-  NButton,
-  NInputGroup,
-  NAutoComplete
-} from 'naive-ui'
+import { type DataTableColumns, type PaginationProps } from 'naive-ui'
 import { getMessage } from '../../hooks/useCreateDiscreteApi'
 import * as packageObj from '../../../../package.json'
 
