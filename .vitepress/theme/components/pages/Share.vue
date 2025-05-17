@@ -249,8 +249,8 @@ const handleClick = () => {
 </script>
 
 <template>
-  <ClientOnly>
-    <div class="share-page">
+  <div class="share-page">
+    <ClientOnly>
       <!-- prettier-ignore -->
       <NMarquee class="share-marquee">
         ⚠️ 1. 当前页面显示加载、文件下载可能需要网络加速 
@@ -305,8 +305,8 @@ const handleClick = () => {
           />
         </NFlex>
       </NFlex>
-    </div>
-  </ClientOnly>
+    </ClientOnly>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -327,7 +327,7 @@ const handleClick = () => {
 .share-content {
   padding: 25px;
 }
-.share-table ::v-deep .n-data-table__pagination {
+.share-table :deep(.n-data-table__pagination) {
   justify-content: center;
 }
 </style>
