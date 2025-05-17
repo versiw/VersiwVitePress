@@ -1,15 +1,22 @@
 <script setup lang="ts">
 import { useDebounceFn } from '@vueuse/core'
-import { type DataTableColumns, type PaginationProps } from 'naive-ui'
+import {
+  type DataTableColumns,
+  type PaginationProps,
+  NButton,
+  NEllipsis,
+  NSpace,
+  NTag
+} from 'naive-ui'
 import { getMessage } from '../../hooks/useCreateDiscreteApi'
 import * as packageObj from '../../../../package.json'
 
 const props = defineProps<{
-  data: ShareItem[]
+  data: ResourceItem[]
 }>()
 
 const tagColorMap: Record<
-  ShareTagValue,
+  resourceRepoTagValue,
   {
     type?: 'default' | 'primary' | 'info' | 'success' | 'warning' | 'error'
     color?: { color?: string; borderColor?: string; textColor?: string }
@@ -30,7 +37,7 @@ const tagColorMap: Record<
   }
 }
 
-const columns: DataTableColumns<ShareItem> = [
+const columns: DataTableColumns<ResourceItem> = [
   {
     title: '分类',
     key: 'category',
@@ -69,7 +76,7 @@ const columns: DataTableColumns<ShareItem> = [
     width: 600,
     maxWidth: 800,
     minWidth: 500,
-    render: (rowData: ShareItem) => {
+    render: (rowData: ResourceItem) => {
       return h(
         NEllipsis,
         { lineClamp: 2, tooltip: { width: 500 } },
@@ -86,7 +93,7 @@ const columns: DataTableColumns<ShareItem> = [
     width: 300,
     maxWidth: 400,
     minWidth: 200,
-    render: (rowData: ShareItem) => {
+    render: (rowData: ResourceItem) => {
       return h(
         NSpace,
         { size: 'small', justify: 'center' },
@@ -130,7 +137,7 @@ const columns: DataTableColumns<ShareItem> = [
     titleAlign: 'center',
     align: 'center',
     width: 100,
-    render: (rowData: ShareItem) => {
+    render: (rowData: ResourceItem) => {
       return h(
         NButton,
         {
@@ -239,10 +246,10 @@ const handleClick = () => {
 </script>
 
 <template>
-  <div class="share-page">
+  <div class="resource-repo-page">
     <ClientOnly>
       <!-- prettier-ignore -->
-      <NMarquee class="share-marquee">
+      <NMarquee class="resource-repo-marquee">
         ⚠️ 1. 当前页面显示加载、文件下载可能需要网络加速 
         ⚠️ 2. 声明：本站收录的资源链接（包括PDF、EPUB、网盘、BT等）均来源于网络公开信息，基于个人偏好整理分享。所有资源仅供学习交流使用。
         <span style="font-weight:bold;color:#d32f2f">
@@ -257,9 +264,9 @@ const handleClick = () => {
         <span style="color: red"><b> 访问即视为同意本声明。</b></span>
       </NMarquee>
 
-      <NFlex class="share-content" justify="center">
-        <NFlex class="share-flex" justify="center">
-          <NInputGroup class="share-input-group">
+      <NFlex class="resource-repo-content" justify="center">
+        <NFlex class="resource-repo-flex" justify="center">
+          <NInputGroup class="resource-repo-input-group">
             <NSelect
               v-model:value="searchMode"
               :options="[
@@ -279,9 +286,9 @@ const handleClick = () => {
           </NInputGroup>
         </NFlex>
 
-        <NFlex class="share-flex">
+        <NFlex class="resource-repo-flex">
           <NDataTable
-            class="share-table"
+            class="resource-repo-table"
             :columns="columns"
             :data="filteredData"
             :bordered="false"
@@ -300,24 +307,24 @@ const handleClick = () => {
 </template>
 
 <style lang="scss" scoped>
-.share-page {
+.resource-repo-page {
   width: 100%;
   height: 100%;
 }
-.share-flex {
+.resource-repo-flex {
   margin: 10px 0;
 }
-.share-marquee {
+.resource-repo-marquee {
   background-color: #f6e0bd;
   color: black;
 }
-.share-input-group {
+.resource-repo-input-group {
   width: auto;
 }
-.share-content {
+.resource-repo-content {
   padding: 25px;
 }
-.share-table :deep(.n-data-table__pagination) {
+.resource-repo-table :deep(.n-data-table__pagination) {
   justify-content: center;
 }
 </style>

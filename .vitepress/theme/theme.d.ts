@@ -49,7 +49,7 @@ interface LibraryData {
   items: LibraryItem[]
 }
 
-type ShareTagValue =
+type resourceRepoTagValue =
   | '720P'
   | '1080P'
   | '2K'
@@ -63,9 +63,9 @@ type ShareTagValue =
   | '收藏级'
 
 /**
- * Share 数据
+ * ResourceRepo 数据
  */
-interface ShareItem {
+interface ResourceItem {
   /** 资源分类 */
   category: string
   /** 资源名称 */
@@ -75,7 +75,7 @@ interface ShareItem {
   /** 资源链接 */
   src: `http://${string}` | `https://${string}` | `magnet:?xt=urn:btih:${string}`
   /** 资源标签 */
-  tags?: ShareTagValue[]
+  tags?: resourceRepoTagValue[]
   /** 文件哈希值 */
   hash?: `md5:${string}` | `sha1:${string}` | `sha256:${string}`
   /** 资源描述 */

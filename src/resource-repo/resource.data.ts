@@ -1,10 +1,10 @@
 export default {
   load() {
-    return shareDatas
+    return resourceDatas
   }
 }
 
-export const shareDatas: ShareItem[] = [
+export const resourceDatas: ResourceItem[] = [
   {
     category: '视频',
     name: '百年孤独',

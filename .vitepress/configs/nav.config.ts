@@ -32,7 +32,7 @@ export default [
     items: [
       {
         text: '资源收录',
-        link: '/share'
+        link: '/resource-repo'
       }
     ]
   },

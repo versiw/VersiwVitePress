@@ -6,7 +6,7 @@ aside: false
 ---
 
 <script setup>
-import { data } from './share.data.ts'
+import { data } from './resource.data.ts'
 </script>
 
-<Share :data="data" />
+<ResourceRepo :data="data" />

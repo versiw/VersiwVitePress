@@ -13,16 +13,7 @@ export default defineConfig({
       imports: [
         'vue',
         {
-          'naive-ui': [
-            'useDialog',
-            'useMessage',
-            'useNotification',
-            'useLoadingBar',
-            'NEllipsis',
-            'NSpace',
-            'NTag',
-            'NButton'
-          ]
+          'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
         }
       ]
     }),
