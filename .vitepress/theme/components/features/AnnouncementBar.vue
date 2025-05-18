@@ -48,7 +48,7 @@ const newArticles = articles.slice(0, 3).map((article) => {
               width="24"
               height="24"
               style="display: inline"
-            />&nbsp;最新记录</span
+            />&nbsp;最新笔记</span
           >
           <p class="card__date">{{ article.date }}</p>
           <p class="card__subtitle">《{{ article.title }}》</p>

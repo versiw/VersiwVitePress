@@ -21,24 +21,24 @@ hero:
       text: 在 GitHub 上查看
       link: https://github.com/versiw/VersiwVitePress
 
-features:
-  - title: 个人知识库
-    icon:
-      src: /images/emoji/Spark.png
-      alt: 个人知识库
-    details: 也许它可以是一个宝库
+# features:
+#   - title: 个人知识库
+#     icon:
+#       src: /images/emoji/Spark.png
+#       alt: 个人知识库
+#     details: 也许它可以是一个宝库
 
-  - title: 常用导航
-    icon:
-      src: /images/emoji/Ghost.png
-      alt: 常用导航
-    details: 希望能带你去往正确的地方
+#   - title: 常用导航
+#     icon:
+#       src: /images/emoji/Ghost.png
+#       alt: 常用导航
+#     details: 希望能带你去往正确的地方
 
-  - title: 巧技妙法
-    icon:
-      src: /images/emoji/Robot.png
-      alt: 巧技妙法
-    details: 真的会有帮助嘛
+#   - title: 巧技妙法
+#     icon:
+#       src: /images/emoji/Robot.png
+#       alt: 巧技妙法
+#     details: 真的会有帮助嘛
 ---
 
 <style lang="scss" >
