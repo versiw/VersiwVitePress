@@ -21,14 +21,17 @@ const slugify = (str) => {
 
 const handleClick = () => {
   const message = getMessage('top')
-  navigator.clipboard
-    .writeText(packageObj.author.email)
-    .then(() => {
-      message.success('邮箱已复制')
-    })
-    .catch((err) => {
-      message.error('复制失败: ' + err.message)
-    })
+
+  if (!import.meta.env.SSR) {
+    navigator.clipboard
+      .writeText(packageObj.author.email)
+      .then(() => {
+        message.success('邮箱已复制')
+      })
+      .catch((err) => {
+        message.error('复制失败: ' + err.message)
+      })
+  }
 }
 </script>
 
@@ -49,12 +52,14 @@ const handleClick = () => {
       </span>
       <span style="color: red"><b> 访问即视为同意本声明。</b></span>
     </NMarquee>
+  </ClientOnly>
 
-    <div v-for="{ group, items } in data">
-      <h2 :id="slugify(group)" tabindex="-1">
-        {{ group }}
-        <a class="header-anchor" :href="`#${slugify(group)}`" aria-hidden="true"></a>
-      </h2>
+  <div v-for="{ group, items } in data">
+    <h2 :id="slugify(group)" tabindex="-1">
+      {{ group }}
+      <a class="header-anchor" :href="`#${slugify(group)}`" aria-hidden="true"></a>
+    </h2>
+    <ClientOnly>
       <NGrid
         class="library-grid"
         cols="2 s:3 m:4 l:5 xl:6 2xl:7"
@@ -66,8 +71,8 @@ const handleClick = () => {
           <Book :data="item" />
         </NGridItem>
       </NGrid>
-    </div>
-  </ClientOnly>
+    </ClientOnly>
+  </div>
 </template>
 
 <style>
