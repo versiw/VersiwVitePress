@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import StreamLoading from '../uiverse/StreamLoading.vue'
+import Loading from '../uiverse/Loading.vue'
 
 const props = defineProps<{
   /**用于跳转外部网站数据统计 */
@@ -73,7 +73,7 @@ function parseCount(text) {
 
   <NGrid v-if="isLoading" class="visit-data-class" :cols="1">
     <NGridItem>
-      <StreamLoading />
+      <Loading />
     </NGridItem>
   </NGrid>
 
