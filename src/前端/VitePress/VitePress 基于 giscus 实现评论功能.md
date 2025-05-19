@@ -21,7 +21,7 @@ giscus 加载时，会使用 [GitHub Discussions 搜索 API](https://docs.githu
 
 - [开源](https://github.com/giscus/giscus)。🌏
 - 无跟踪，无广告，永久免费。📡 🚫
-- 无需数据库。所有数据均储存在 GitHub Discussions 中。:octocat:
+- 无需数据库。所有数据均储存在 GitHub Discussions 中。
 - 支持[自定义主题](https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#data-theme)！🌗
 - 支持[多种语言](https://github.com/giscus/giscus/blob/main/CONTRIBUTING.md#adding-localizations)。🌐
 - [高可配置性](https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md)。🔧
@@ -134,7 +134,7 @@ Layout: () => {
 > 请注意**使用组件**这一部分的使用，结合实际 `VitePress` 的配置，做出适当修改
 
 
-## 参考文章
+## 参考资料
 
 
 [giscus](https://giscus.app/zh-CN)

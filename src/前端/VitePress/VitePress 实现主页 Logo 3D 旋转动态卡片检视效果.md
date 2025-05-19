@@ -12,7 +12,7 @@ publish: true
 
 ## 预览
 
-![[preview2.gif]]
+![[preview2.gif|200x200]]
 
 
 ## 参考目录结构树
