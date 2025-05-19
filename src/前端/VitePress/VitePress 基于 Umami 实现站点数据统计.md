@@ -52,7 +52,7 @@ postgresql://postgres.mnnumwzyfnzxpydfizub:[YOUR-PASSWORD]@[YOUR-HOST]:5432/post
 > [!tip] 提示
 > `[YOUR-PASSWORD]` 整个替换为自己的数据库密码
 
-## ~~在 Netlify 上部署前端界面（不推荐）~~
+## 在 Netlify 上部署前端界面（不推荐）
 
 ### fork 仓库
 
