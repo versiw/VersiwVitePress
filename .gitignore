@@ -1,5 +1,6 @@
-node_modules
-cache
+**/node_modules/
+**/cache/
+*.ffs_db
 
 # dts
 
@@ -12,5 +13,5 @@ stats.html
 
 # vitepress
 
-.vitepress/cache
-.vitepress/dist
+.vitepress/cache/
+.vitepress/dist/
