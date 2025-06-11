@@ -26,10 +26,10 @@ export default [
     ]
   },
   { text: '软件', link: getFirstFileFormRelativeSrcDir('软件') },
-  { text: '阅读', link: '/book' },
   {
     text: '其他',
     items: [
+      { text: '我的书架', link: '/book' },
       {
         text: '资源收录',
         link: '/resource-repo'

@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { join, relative, resolve } from 'node:path'
+import { extname, join, relative, resolve } from 'node:path'
 
 export const getFirstFileFormRelativeSrcDir = (relativeSrcDir: string, debug: boolean = false) => {
   try {
@@ -13,7 +13,7 @@ export const getFirstFileFormRelativeSrcDir = (relativeSrcDir: string, debug: bo
       const fileFullPath = join(fullPath, file)
       const stat = fs.statSync(fileFullPath) // 获取文件状态
 
-      if (stat.isFile()) {
+      if (stat.isFile() && extname(file) === '.md') {
         // 如果是文件
         if (debug) {
           console.log(`getFirstFileFormRelativeSrcDir: ${fileFullPath}`)
