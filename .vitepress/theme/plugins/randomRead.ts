@@ -15,9 +15,7 @@ export function setupRandomRead(router: Router) {
             const randomIndex = Math.floor(Math.random() * articles.length)
             const randomArticle = articles[randomIndex]
             if (router) {
-              router.go(
-                (hostname.includes('localhost') ? '/VersiwVitePress' : '') + randomArticle.url
-              )
+              router.go((hostname.includes('github') ? '/VersiwVitePress' : '') + randomArticle.url)
             } else {
               window.location.href =
                 (hostname.includes('github') ? '/VersiwVitePress' : '') + randomArticle.url
