@@ -2,17 +2,17 @@ import type { HeadConfig } from 'vitepress'
 
 const headConfig = (env) => {
   const heads: HeadConfig[] = [
-    ['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }],
-    [
-      'link',
-      {
-        rel: 'preload',
-        herf: env.VITE_BASE + 'fonts/LXGWWenKaiGBScreenR.ttf',
-        as: 'font',
-        type: 'font/ttf',
-        crossorigin: ''
-      }
-    ]
+    ['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]
+    // [
+    //   'link',
+    //   {
+    //     rel: 'preload',
+    //     herf: env.VITE_BASE + 'fonts/LXGWWenKaiGBScreenR.ttf',
+    //     as: 'font',
+    //     type: 'font/ttf',
+    //     crossorigin: ''
+    //   }
+    // ]
   ]
 
   if (process.env.NODE_ENV === 'production') {

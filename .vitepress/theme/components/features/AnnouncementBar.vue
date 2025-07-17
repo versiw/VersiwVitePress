@@ -164,11 +164,11 @@ $rainbow-color: var(--vp-c-brand-1);
   }
 }
 
-.announcement-bar ::v-deep .n-carousel__dot {
+.announcement-bar :deep(.n-carousel__dot) {
   background-color: rgb(from var(--vp-c-text-1) r g b / 30%) !important;
 }
 
-.announcement-bar ::v-deep .n-carousel__dot--active {
+.announcement-bar :deep(.n-carousel__dot--active) {
   background-color: var(--vp-c-text-1) !important;
 }
 </style>

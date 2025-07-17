@@ -20,7 +20,6 @@ export default {
       if (!import.meta.env.SSR) {
         const module = await import('./hooks/CardEffect.js')
         initCardEffect = module.initCardEffect
-        console.log('ssr')
       }
       if (typeof window !== 'undefined') {
         nextTick(() => {

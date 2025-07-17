@@ -18,7 +18,7 @@ const backTopRef = ref(null)
 </template>
 
 <style lang="scss" scoped>
-::v-deep .n-back-top {
+:deep(.n-back-top) {
   background-color: transparent !important;
   box-shadow: unset !important;
 }

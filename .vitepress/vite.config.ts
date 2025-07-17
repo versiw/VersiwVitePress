@@ -52,5 +52,12 @@ export default defineConfig({
       '@nolebase/vitepress-plugin-highlight-targeted-heading',
       '@nolebase/ui'
     ]
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler'
+      }
+    }
   }
 })
