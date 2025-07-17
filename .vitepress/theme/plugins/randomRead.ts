@@ -7,6 +7,7 @@ export function setupRandomRead(router: Router) {
     window.addEventListener('load', () => {
       const button = document.querySelector('.actions .action:first-child .VPButton')
       button.removeAttribute('href')
+      const hostname = window.location.hostname
       if (button) {
         button.addEventListener('click', (e) => {
           e.preventDefault()
@@ -16,7 +17,9 @@ export function setupRandomRead(router: Router) {
             if (router) {
               router.go(randomArticle.url)
             } else {
-              window.location.href = randomArticle.url
+              window.location.href = hostname.includes('github')
+                ? '/VersiwVitePress'
+                : '' + randomArticle.url
             }
           } else {
             console.warn('没有可用的文章')

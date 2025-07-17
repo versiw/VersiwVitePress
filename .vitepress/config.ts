@@ -78,7 +78,7 @@ const vitePressOptions = (env): UserConfig => {
     },
     vite: viteConfig,
     sitemap: {
-      hostname: 'https://versiw.github.io' + env.VITE_BASE
+      hostname: 'https://' + env.VITE_HOSTNAME + env.VITE_BASE
     }
   }
 }
