@@ -4,6 +4,7 @@ import { setupReadability } from './nolebase'
 import { setupCardEffect } from './cardEffect'
 import { setupGlobalComponents } from './globalComponents'
 import { setupLoadingBar } from './loadingBar'
+import { setupRandomRead } from './randomRead'
 
 export function setupPlugins(ctx: EnhanceAppContext) {
   const { app, router, siteData } = ctx
@@ -12,4 +13,5 @@ export function setupPlugins(ctx: EnhanceAppContext) {
   setupCardEffect(router)
   setupGlobalComponents(app)
   setupLoadingBar(router)
+  setupRandomRead(router)
 }

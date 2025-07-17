@@ -1,27 +1,7 @@
 <script setup lang="ts">
-import { ContentData, withBase } from 'vitepress'
+import { withBase } from 'vitepress'
 // @ts-ignore
-import { data as files } from '../../../utils/latestFiles.data'
-import dayjs from 'dayjs'
-
-const articles: ContentData[] = files.filter(
-  (file: ContentData) => file.url.endsWith('.html') && file.frontmatter?.publish
-)
-
-articles.sort((a, b) => {
-  const dateA = dayjs(a.frontmatter.createDateTime || '1970-01-01T00:00:00Z')
-  const dateB = dayjs(b.frontmatter.createDateTime || '1970-01-01T00:00:00Z')
-  return dateB.valueOf() - dateA.valueOf()
-})
-
-const newArticles = articles.slice(0, 3).map((article) => {
-  return {
-    title: article.url.split('/').pop()?.replace('.html', ''),
-    date: dayjs(article.frontmatter?.createDateTime).format('YYYY-MM-DD'),
-    tags: article.frontmatter?.tags || [],
-    url: article.url
-  }
-})
+import { data as latestArticles } from '../../loders/latestArticles.data'
 </script>
 
 <template>
@@ -36,7 +16,7 @@ const newArticles = articles.slice(0, 3).map((article) => {
       mousewheel
     >
       <!-- From Uiverse.io by 0xnihilism -->
-      <div class="card" v-for="article in newArticles" :key="article.url">
+      <div class="card" v-for="article in latestArticles" :key="article.url">
         <a :href="withBase(article.url)">
           <div class="banner">
             <span class="banner-text">NEW</span>
