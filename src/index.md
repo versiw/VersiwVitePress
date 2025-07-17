@@ -17,9 +17,9 @@ hero:
     - theme: brand
       text: 开始阅读
       link: /markdown-examples
-    - theme: alt
-      text: 在 GitHub 上查看
-      link: https://github.com/versiw/VersiwVitePress
+    # - theme: alt
+    #   text: 在 GitHub 上查看
+    #   link: https://github.com/versiw/VersiwVitePress
 
 # features:
 #   - title: 个人知识库
