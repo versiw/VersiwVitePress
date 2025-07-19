@@ -5,6 +5,7 @@ import { setupCardEffect } from './cardEffect'
 import { setupGlobalComponents } from './globalComponents'
 import { setupLoadingBar } from './loadingBar'
 import { setupRandomRead } from './randomRead'
+import { setupImageViewer } from './imageViewer'
 
 export function setupPlugins(ctx: EnhanceAppContext) {
   const { app, router, siteData } = ctx
@@ -14,4 +15,5 @@ export function setupPlugins(ctx: EnhanceAppContext) {
   setupGlobalComponents(app)
   setupLoadingBar(router)
   setupRandomRead(router)
+  setupImageViewer(router)
 }
