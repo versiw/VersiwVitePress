@@ -41,6 +41,7 @@ const slugify = (str) => {
                   :src="withBase(item.icon)"
                   lazy
                   :intersection-observer-options="{ root: null }"
+                  @click.stop
                 />
               </template>
               <template #default>

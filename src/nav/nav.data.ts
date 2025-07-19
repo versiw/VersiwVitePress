@@ -37,6 +37,12 @@ export const navDatas: NavData[] = [
         title: 'Inspira UI',
         desc: '使用shadcn-vue、motion-v和TailwindCSS构建可重用组件',
         link: 'https://inspira-ui.com/'
+      },
+      {
+        icon: '/images/navicons/UI 组件库/Vue Bits.ico',
+        title: 'Vue Bits',
+        desc: '最大、最具创意的 Vue 动画组件库',
+        link: 'https://vue-bits.dev/'
       }
     ]
   },
@@ -117,8 +123,14 @@ export const navDatas: NavData[] = [
       {
         icon: '/images/navicons/功能库/Day.js中文网.png',
         title: 'Day.js中文网',
-        desc: 'Day.js是一个极简的JavaScript库,可以为现代浏览器解析、验证、操作和显示日期和时间。',
+        desc: 'Day.js是一个极简的JavaScript库,可以为现代浏览器解析、验证、操作和显示日期和时间',
         link: 'https://dayjs.fenxianglu.cn/'
+      },
+      {
+        icon: '/images/navicons/功能库/Fancyapps UI.ico',
+        title: 'Fancyapps UI',
+        desc: '功能丰富的现代JavaScript工具包，可帮助创建引人入胜的功能性用户体验',
+        link: 'https://fancyapps.com/'
       }
     ]
   },
