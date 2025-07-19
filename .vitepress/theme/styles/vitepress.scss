@@ -1,3 +1,6 @@
+/**
+首页网格背景
+*/
 .dark .custom-home-class .VPContent:not(.has-sidebar) {
   background-image:
     repeating-linear-gradient(
@@ -64,6 +67,9 @@
     linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
 }
 
+/**
+首页特征块边框阴影处理
+*/
 .VPFeature {
   // background-color: rgba(var(--vp-c-bg-soft),0.1) !important;
   backdrop-filter: blur(10px) !important;
@@ -71,6 +77,22 @@
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }
 
+/**
+优化首页底部外边距导致的侧边滚动条显示
+*/
 .VPHome {
   margin-bottom: unset !important;
+}
+
+/**
+文章内容的图像居中显示，并优化显示效果
+*/
+.VPDoc.has-sidebar.has-aside .main img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px var(--vp-c-divider);
+  cursor: zoom-in;
+  border-radius: calc(0.25rem * 2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

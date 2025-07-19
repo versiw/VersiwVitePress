@@ -1,17 +1,17 @@
 @use './tailwind.scss';
 
-@use './rainbow.scss';
+@use './rainbow.scss'; // 彩虹渐变效果
 
-@use './vars.scss';
+@use './vars.scss'; // VitePress自定义主题变量
 
-@use './vitepress.scss';
+@use './vitepress.scss'; // VitePress自定义样式
 
 @use './cardEffect.scss';
 
-@use './nav-page.scss';
+@use './nav-page.scss'; // 导航页面样式
 
-@use './main.scss';
+@use './nolebase.scss'; // nolebase 样式
 
 @use './my-fonts.scss';
 
-@use './link.scss';
+@use './link.scss'; // 链接前显示站点图标
