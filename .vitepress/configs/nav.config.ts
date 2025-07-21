@@ -56,7 +56,4 @@ export default [
       { text: 'Python房产信息采集和可视化分析', link: 'gallery/python-house-spider.md' }
     ]
   }
-  // {
-  //   component: 'MusicPlay'
-  // }
 ]
