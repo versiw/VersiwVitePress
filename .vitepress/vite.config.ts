@@ -4,7 +4,6 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 
 import { compression } from 'vite-plugin-compression2'
-import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import { visualizer } from 'rollup-plugin-visualizer'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -23,10 +22,6 @@ export default defineConfig({
       resolvers: [NaiveUiResolver()]
     }),
     compression(),
-    chunkSplitPlugin({
-      strategy: 'single-vendor',
-      customSplitting: {}
-    }),
     visualizer({
       filename: 'stats.html',
       gzipSize: true,
@@ -36,7 +31,23 @@ export default defineConfig({
     })
   ],
   build: {
-    minify: true
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true // 移除 console
+      },
+      format: {
+        comments: false // 移除注释
+      }
+    },
+    reportCompressedSize: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'naive-ui-vendor': ['naive-ui']
+        }
+      }
+    }
   },
   optimizeDeps: {
     exclude: [
