@@ -38,6 +38,7 @@
 import { useData } from 'vitepress'
 import { ShareOutlined } from '@vicons/material'
 import { getMessage } from '../../hooks/useCreateDiscreteApi'
+import { murmurHash3_32ToBase62 } from '../../lib/murmHash3_32'
 
 const { page } = useData()
 const currentPageShortLink = ref('')
@@ -62,7 +63,7 @@ const generateCurrentPageShortLink = async () => {
   if (typeof window !== 'undefined') {
     const basePath = import.meta.env.BASE_URL || '/'
     const { protocol, hostname, port } = window.location
-    const hash = await generateBrowserHash(
+    const hash = murmurHash3_32ToBase62(
       decodeURIComponent(('/' + page.value.filePath).replace(/(\/index)?\.md$/, '/'))
     )
     currentPageShortLink.value = `${protocol}//${hostname}${port ? `:${port}` : ''}${basePath}s?q=${hash}`

@@ -1,12 +1,12 @@
 import { createContentLoader } from 'vitepress'
-import crypto from 'node:crypto'
+import { murmurHash3_32ToBase62 } from '../lib/murmHash3_32'
 
 interface ShortLinkMap {
   [hash: string]: string
 }
 
-function generateHash(path: string): string {
-  return crypto.createHash('sha256').update(path).digest('hex').substring(0, 10)
+const generateHash = (path: string): string => {
+  return murmurHash3_32ToBase62(path)
 }
 
 declare const data: ShortLinkMap
