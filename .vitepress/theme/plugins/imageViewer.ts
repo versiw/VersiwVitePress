@@ -12,5 +12,7 @@ export const setupImageViewer = async (router: Router) => {
   }
   if (typeof window === 'undefined') return
   router.onBeforeRouteChange = composeHandlers(router.onBeforeRouteChange, () => destroyFancybox())
-  router.onAfterRouteChange = composeHandlers(router.onAfterRouteChange, () => bindFancybox())
+  router.onAfterRouteChange = composeHandlers(router.onAfterRouteChange, () =>
+    nextTick(() => bindFancybox())
+  )
 }

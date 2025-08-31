@@ -56,9 +56,14 @@ const findNearestHeading = (imgElement: HTMLElement): string => {
  * 4. 应用Fancybox配置
  */
 export const bindFancybox = () => {
-  nextTick(async () => {
+  nextTick(() => {
     // 获取所有需要绑定Fancybox的图片
     const imgs = document.querySelectorAll('.vp-doc img')
+
+    // 如果当前页面没有图片，则直接返回
+    if (imgs.length === 0) {
+      return
+    }
 
     // 处理每张图片
     imgs.forEach((img) => {
