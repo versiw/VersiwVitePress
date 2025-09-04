@@ -72,6 +72,12 @@ export const navDatas: NavData[] = [
         title: 'VitePress',
         desc: '由 Vite 和 Vue 驱动的静态站点生成器',
         link: 'https://vitepress.dev/zh/'
+      },
+      {
+        icon: '/images/navicons/开发框架/Next.js.ico',
+        title: 'Next.js',
+        desc: 'React Web 框架',
+        link: 'https://nextjs.org/'
       }
     ]
   },
@@ -217,6 +223,17 @@ export const navDatas: NavData[] = [
         title: 'Umami',
         desc: '一个开源的、以隐私为中心的网站分析工具',
         link: 'https://umami.is/'
+      }
+    ]
+  },
+  {
+    group: '在线工具与资源',
+    items: [
+      {
+        icon: '/images/navicons/在线工具与资源/Picsum Photos.png', // 建议您为它找一个图标
+        title: 'Picsum Photos',
+        desc: '易于使用，时尚的占位符',
+        link: 'https://picsum.photos/'
       }
     ]
   },
