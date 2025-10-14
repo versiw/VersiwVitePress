@@ -9,6 +9,7 @@ import VercountAnalytics from './features/VercountAnalytics.vue'
 import BackTop from './features/BackTop.vue'
 import AnnouncementBar from './features/AnnouncementBar.vue'
 import DocsFooter from './features/DocsFooter.vue'
+import NoiseEffect from './features/NoiseEffect.vue'
 
 const isGithubPages = ref(null)
 
@@ -92,6 +93,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     </DefaultTheme.Layout>
   </NConfigProvider>
   <BackTop />
+  <NoiseEffect />
 </template>
 
 <style>
