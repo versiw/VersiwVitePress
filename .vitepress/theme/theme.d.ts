@@ -10,6 +10,8 @@ interface NavItem {
   desc?: string
   /** 站点链接 */
   link: string
+  /** 站点仓库 */
+  repo?: string
 }
 interface NavData {
   /**分组 */
