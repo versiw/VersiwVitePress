@@ -6,8 +6,14 @@ import Components from 'unplugin-vue-components/vite'
 import { compression } from 'vite-plugin-compression2'
 import { visualizer } from 'rollup-plugin-visualizer'
 import tailwindcss from '@tailwindcss/vite'
+import path from 'node:path'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './.vitepress/theme')
+    }
+  },
   plugins: [
     tailwindcss(),
     AutoImport({

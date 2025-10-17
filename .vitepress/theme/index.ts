@@ -5,6 +5,7 @@ import EnhancedLayout from './EnhancedLayout'
 import { setupPlugins } from './plugins'
 
 import './styles/index.scss'
+import './styles/tailwind.css'
 
 let initCardEffect = () => {}
 let destroyFancybox: () => {}
