@@ -30,8 +30,8 @@ const headConfig = (env) => {
           // src: env.VITE_BASE + 'scripts/umm.js',
           // 'data-host-url': 'https://umami.versiw.com',
           'data-website-id': isGitHubPages
-            ? '656ea8ec-3ea1-4bd5-9ce3-2b87abd42c5c' // github
-            : '14a6bdb6-1972-4d51-8821-52f63c03713c' // netlify
+            ? '656ea8ec-3ea1-4bd5-9ce3-2b87abd42c5c' // versiw.github.io
+            : '14a6bdb6-1972-4d51-8821-52f63c03713c' // docs.versiw.com
         }
       ]
     )
