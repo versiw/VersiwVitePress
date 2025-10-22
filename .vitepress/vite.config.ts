@@ -5,7 +5,6 @@ import Components from 'unplugin-vue-components/vite'
 
 import { compression } from 'vite-plugin-compression2'
 import { visualizer } from 'rollup-plugin-visualizer'
-import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
 export default defineConfig({
@@ -15,7 +14,6 @@ export default defineConfig({
     }
   },
   plugins: [
-    tailwindcss(),
     AutoImport({
       imports: [
         'vue',
