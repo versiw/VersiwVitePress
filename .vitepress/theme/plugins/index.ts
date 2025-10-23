@@ -6,9 +6,13 @@ import { setupGlobalComponents } from './globalComponents'
 import { setupLoadingBar } from './loadingBar'
 import { setupRandomRead } from './randomRead'
 import { setupImageViewer } from './imageViewer'
+import { setupNaiveUISSR } from './naiveUISSR'
 
 export function setupPlugins(ctx: EnhanceAppContext) {
   const { app, router, siteData } = ctx
+
+  setupNaiveUISSR(app)
+
   setupAnalytics(router)
   setupReadability(app)
   setupCardEffect(router)

@@ -16,6 +16,8 @@ import sideBarConfig from './configs/sideBar.config'
 import { transformerMetaDiff } from './shikiTransformers/meta-diff'
 import { transformerMetaHighlight } from '@shikijs/transformers'
 
+const fileAndStyles: Record<string, string> = {}
+
 const vitePressOptions = (env): UserConfig => {
   return {
     // 站点元数据
@@ -77,6 +79,25 @@ const vitePressOptions = (env): UserConfig => {
       }
     },
     vite: viteConfig,
+    postRender(context) {
+      const styleRegex = /<css-render-style>((.|\s)+)<\/css-render-style>/
+      const vitepressPathRegex = /<vitepress-path>(.+)<\/vitepress-path>/
+      const style = styleRegex.exec(context.content)?.[1]
+      const vitepressPath = vitepressPathRegex.exec(context.content)?.[1]
+      if (vitepressPath && style) {
+        fileAndStyles[vitepressPath] = style
+      }
+      context.content = context.content.replace(styleRegex, '')
+      context.content = context.content.replace(vitepressPathRegex, '')
+    },
+    transformHtml(code, id) {
+      const html = id.split('/').pop()
+      if (!html) return
+      const style = fileAndStyles[`/${html}`]
+      if (style) {
+        return code.replace(/<\/head>/, style + '</head>')
+      }
+    },
     sitemap: {
       hostname: 'https://' + env.VITE_HOSTNAME + env.VITE_BASE
     }

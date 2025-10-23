@@ -3,16 +3,21 @@ import { EnhanceAppContext } from 'vitepress'
 import { nextTick, onMounted } from 'vue'
 import EnhancedLayout from './EnhancedLayout'
 import { setupPlugins } from './plugins'
+import { NaiveSSRProvider } from './plugins/naiveUISSR'
 
 import './styles/index.scss'
 import './styles/tailwind.css'
 
 let initCardEffect = () => {}
-let destroyFancybox: () => {}
-let bindFancybox: () => void
+// let destroyFancybox: () => {}
+// let bindFancybox: () => void
 
 export default {
-  Layout: EnhancedLayout,
+  Layout: () => {
+    return h(NaiveSSRProvider, null, {
+      default: () => h(EnhancedLayout)
+    })
+  },
 
   async enhanceApp({ app, router, siteData }: EnhanceAppContext) {
     setupPlugins({ app, router, siteData })

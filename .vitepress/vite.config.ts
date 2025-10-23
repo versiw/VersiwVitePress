@@ -10,7 +10,7 @@ import path from 'node:path'
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './.vitepress/theme')
+      '@': path.resolve(__dirname, './theme')
     }
   },
   plugins: [
@@ -65,6 +65,7 @@ export default defineConfig({
       'naive-ui',
       'date-fns',
       'vueuc',
+      '@css-render/vue3-ssr',
       '@nolebase/vitepress-plugin-enhanced-readabilities',
       '@nolebase/vitepress-plugin-highlight-targeted-heading',
       '@nolebase/ui'
