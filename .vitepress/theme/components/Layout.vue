@@ -57,7 +57,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     :theme="isDark ? darkTheme : undefined"
     :locale="zhCN"
     :date-locale="dateZhCN"
+    :abstract="true"
     preflight-style-disabled
+    inline-theme-disabled
   >
     <DefaultTheme.Layout>
       <template #home-hero-info-before>

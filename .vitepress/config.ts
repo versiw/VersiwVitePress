@@ -15,6 +15,7 @@ import sideBarConfig from './configs/sideBar.config'
 
 import { transformerMetaDiff } from './shikiTransformers/meta-diff'
 import { transformerMetaHighlight } from '@shikijs/transformers'
+import { naiveSSRExtension } from './extensions/naive-ssr'
 
 const fileAndStyles: Record<string, string> = {}
 
@@ -78,26 +79,12 @@ const vitePressOptions = (env): UserConfig => {
         )
       }
     },
-    vite: viteConfig,
-    postRender(context) {
-      const styleRegex = /<css-render-style>((.|\s)+)<\/css-render-style>/
-      const vitepressPathRegex = /<vitepress-path>(.+)<\/vitepress-path>/
-      const style = styleRegex.exec(context.content)?.[1]
-      const vitepressPath = vitepressPathRegex.exec(context.content)?.[1]
-      if (vitepressPath && style) {
-        fileAndStyles[vitepressPath] = style
-      }
-      context.content = context.content.replace(styleRegex, '')
-      context.content = context.content.replace(vitepressPathRegex, '')
-    },
-    transformHtml(code, id) {
-      const html = id.split('/').pop()
-      if (!html) return
-      const style = fileAndStyles[`/${html}`]
-      if (style) {
-        return code.replace(/<\/head>/, style + '</head>')
-      }
-    },
+    vite: viteConfig as UserConfig,
+
+    ...naiveSSRExtension({
+      enableDebug: false
+    }),
+
     sitemap: {
       hostname: 'https://' + env.VITE_HOSTNAME + env.VITE_BASE
     }
