@@ -29,16 +29,13 @@
 .VPHomeHero {
   .image {
     .custom-hero-image-container {
-      will-change: transform;
-      --per: 30%;
+      --per: 30%; // GSAP会控制这个变量
       position: relative;
-      transform-style: preserve-3d; /* 保持 3D 变换 */
-      perspective: 1000px; /* 调整值控制透视强度 */
+      transform-style: preserve-3d;
+      perspective: 800px;
       transform-origin: center;
-      will-change: transform; /* 优化动画性能 */
-      backface-visibility: hidden; /* 防止翻转时闪烁 */
-
-      transition: all 0.1s;
+      backface-visibility: hidden;
+      will-change: transform; // 优化动画性能
 
       animation: float 3s infinite linear;
 
@@ -52,20 +49,12 @@
         background: linear-gradient(
           115deg,
           transparent 0%,
-          // rgba(255, 255, 255, 0.5) var(--per),
-          // rgba(0, 0, 0, 0.5) calc(var(--per) + 25%),
-          // rgba(255, 255, 255, 0.5) calc(var(--per) + 50%),
-          // #06e8ff var(--per),
-          // #ffab2e calc(var(--per) + 25%),
-          // #ff2212 calc(var(--per) + 50%),
           #03a9f4 var(--per),
           #e91e63 calc(var(--per) + 35%),
           #9c27b0 calc(var(--per) + 65%),
           transparent 100%
         );
-        // mix-blend-mode: color-dodge;
         mix-blend-mode: overlay;
-
         transform: translateZ(-15px); /* 创建厚度 */
         box-shadow:
           0 0 15px rgba(255, 255, 255, 0.5) inset,
