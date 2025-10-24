@@ -1,0 +1,12 @@
+/**
+文章内容的图像居中显示，并优化显示效果
+*/
+.VPDoc.has-sidebar.has-aside .main img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px var(--vp-c-divider);
+  cursor: zoom-in;
+  border-radius: calc(0.25rem * 2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

@@ -1,5 +1,5 @@
 ---
-pageClass: custom-nav-page-class
+pageClass: custom-nav-class
 outline: [2, 3, 4]
 sidebar: false
 ---

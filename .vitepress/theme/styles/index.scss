@@ -1,19 +1,32 @@
-// @use './tailwind.scss';
+// 彩虹渐变效果
+@use './rainbow.scss';
 
-@use './rainbow.scss'; // 彩虹渐变效果
+// VitePress自定义主题变量
+@use './vars.scss';
 
-@use './vars.scss'; // VitePress自定义主题变量
-
-@use './vitepress.scss'; // VitePress自定义样式
-
+// 首页卡片
 @use './cardEffect.scss';
 
-@use './nav-page.scss'; // 导航页面样式
+// 导航页面样式
+@use './nav-page.scss';
 
-@use './nolebase.scss'; // nolebase 样式
+// 书架页面样式
+@use './book-page.scss';
 
+// nolebase 样式
+@use './nolebase.scss';
+
+// 字体自定义
 @use './my-fonts.scss';
 
-@use './link.scss'; // 链接前显示站点图标
+// 链接前显示站点图标
+@use './link.scss';
 
-@use './sidebarIcon.scss'; // 侧边栏样式美化
+// 侧边栏自定义
+@use './sidebarIcon.scss';
+
+// 首页自定义
+@use './home.scss';
+
+// doc 布局下内容区域自定义
+@use './docContent.scss';
