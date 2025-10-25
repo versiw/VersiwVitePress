@@ -48,7 +48,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'naive-ui-vendor': ['naive-ui']
+          'naive-ui-vendor': ['naive-ui'],
+          'gsap-vendor': ['gsap']
         }
       }
     }
@@ -68,7 +69,8 @@ export default defineConfig({
       '@css-render/vue3-ssr',
       '@nolebase/vitepress-plugin-enhanced-readabilities',
       '@nolebase/vitepress-plugin-highlight-targeted-heading',
-      '@nolebase/ui'
+      '@nolebase/ui',
+      'gsap'
     ]
   },
   css: {

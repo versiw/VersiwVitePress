@@ -1,5 +1,6 @@
 import type { Router } from 'vitepress'
 import { inBrowser } from 'vitepress'
+import { composeHandlers } from '../lib/compose'
 
 let cardEffectCleanup: (() => void) | undefined
 
@@ -12,21 +13,17 @@ export function setupCardEffect(router: Router) {
 
   const cardSelector = '.VPHomeHero .image .custom-hero-image-container'
 
-  // 路由切换后执行
-  router.onAfterRouteChange = (to) => {
-    // 离开页面时，如果存在清理函数，则执行它
+  // 定义此插件的路由处理逻辑
+  const routeChangeHandler = (to: string) => {
     if (cardEffectCleanup) {
       cardEffectCleanup()
       cardEffectCleanup = undefined
     }
 
-    // 判断是否是首页
     if (to === '/' || router.route.path === '/') {
-      // 动态导入，确保只在需要时加载代码
       import('../hooks/useCardEffect').then((module) => {
         try {
           const result = module.useCardEffect(cardSelector)
-          // 保存清理函数，以便在离开首页时调用
           if (result && typeof result.cleanup === 'function') {
             cardEffectCleanup = result.cleanup
           }
@@ -36,4 +33,7 @@ export function setupCardEffect(router: Router) {
       })
     }
   }
+
+  // 使用 composeHandlers 来附加处理逻辑，而不是覆盖
+  router.onAfterRouteChange = composeHandlers(router.onAfterRouteChange, routeChangeHandler)
 }

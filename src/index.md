@@ -6,9 +6,9 @@ layout: home
 hero:
   name: '诗维'
   text: 
-    <img src="/images/emoji/Saluting Face.png" alt="诗维 - versiw" width="70" height="50" style="display:inline" />
-    <img src="/images/emoji/Face with Monocle.png" alt="诗维 - versiw" width="70" height="50" style="display:inline" />
-    <img src="/images/emoji/Face with Crossed-Out Eyes.png" alt="诗维 - versiw" width="70" height="50" style="display:inline" />
+    <img class="bouncing-emoji-item" src="/images/emoji/Saluting Face.png" alt="诗维 - versiw" width="70" height="50" style="display:inline" />
+    <img class="bouncing-emoji-item" src="/images/emoji/Face with Monocle.png" alt="诗维 - versiw" width="70" height="50" style="display:inline" />
+    <img class="bouncing-emoji-item" src="/images/emoji/Face with Crossed-Out Eyes.png" alt="诗维 - versiw" width="70" height="50" style="display:inline" />
   tagline: '“和光同尘，与时舒卷”'
   image:
     src: /versiw.svg

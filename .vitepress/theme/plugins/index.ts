@@ -7,6 +7,7 @@ import { setupLoadingBar } from './loadingBar'
 import { setupRandomRead } from './randomRead'
 import { setupImageViewer } from './imageViewer'
 import { setupNaiveUISSR } from './naiveUISSR'
+import { setupEmojiEffect } from './emojiEffect'
 
 export function setupPlugins(ctx: EnhanceAppContext) {
   const { app, router, siteData } = ctx
@@ -16,6 +17,7 @@ export function setupPlugins(ctx: EnhanceAppContext) {
   setupAnalytics(router)
   setupReadability(app)
   setupCardEffect(router)
+  setupEmojiEffect(router)
   setupGlobalComponents(app)
   setupLoadingBar(router)
   setupRandomRead(router)
