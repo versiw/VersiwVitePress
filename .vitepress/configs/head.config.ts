@@ -2,7 +2,25 @@ import type { HeadConfig } from 'vitepress'
 
 const headConfig = (env) => {
   const heads: HeadConfig[] = [
-    ['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }]
+    ['link', { rel: 'icon', href: env.VITE_BASE + 'versiw.ico' }],
+    // LCP 图像预加载
+    [
+      'link',
+      {
+        rel: 'preload',
+        href: '/versiw.svg',
+        as: 'image',
+        type: 'image/svg+xml',
+        fetchpriority: 'high'
+      }
+    ],
+    // DNS 预解析
+    // Vercount 访问统计
+    ['link', { rel: 'preconnect', href: 'https://cn.vercount.one/' }],
+    ['link', { rel: 'dns-prefetch', href: 'https://cn.vercount.one/' }],
+    // giscus 评论
+    ['link', { rel: 'preconnect', href: 'https://giscus.app/' }],
+    ['link', { rel: 'dns-prefetch', href: 'https://giscus.app/' }]
     // [
     //   'link',
     //   {

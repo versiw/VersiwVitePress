@@ -13,6 +13,10 @@ export default [
       {
         text: '包管理器',
         link: getFirstFileFormRelativeSrcDir('前端/包管理器')
+      },
+      {
+        text: '性能优化',
+        link: getFirstFileFormRelativeSrcDir('前端/性能优化')
       }
     ]
   },
