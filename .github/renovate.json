@@ -1,0 +1,55 @@
+{
+  // 为编辑器提供智能提示和语法校验
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  // 继承一系列预设配置，组合使用
+  "extends": [
+    // 官方推荐的基础配置
+    "config:recommended",
+    // 启用依赖仪表盘 Issue，用一个 Issue 集中管理所有更新，减少 PR 干扰
+    ":dependencyDashboard",
+
+    // 每周运行一次
+    "schedule:weekly",
+    // 解除 PR 创建的数量限制，确保周任务能一次性跑完
+    ":prHourlyLimitNone",
+    ":prConcurrentLimitNone",
+    // 自动合并测试通过的、安全的非主版本更新 (minor/patch)
+    ":automergeStableNonMajor",
+
+    // 规范化 PR 标题，如 chore(deps):
+    ":semanticPrefixFixDepsChoreOthers",
+    // 忽略 node_modules 和一些常见测试目录下的依赖文件
+    ":ignoreModulesAndTests",
+
+    // 聚合 Monorepo 项目的包 (如 @babel/core, @babel/cli)
+    "group:monorepos",
+    // 聚合生态圈的包 (如 eslint 及其插件)
+    "group:recommended",
+    // 将所有剩余的零散小更新打包进一个 PR
+    "group:allNonMajor",
+
+    // 自动应用已知问题包的修复方案
+    "workarounds:all"
+  ],
+
+  // 为所有相关 PR 添加 'dependencies' 标签，便于筛选
+  "labels": ["dependencies"],
+
+  // 合并 PR 时将多个 commit 压成一个，保持主干历史整洁
+  "automergeStrategy": "squash",
+
+  // 自定义规则，拥有最高优先级
+  "packageRules": [
+    {
+      // 聚合 vitepress 和 vue 的更新
+      "matchPackagePatterns": ["vitepress", "vue"],
+      "groupName": "VitePress & Vue Core"
+    },
+    {
+      // 聚合所有 @nolebase/ 包的更新
+      "matchPackagePatterns": ["^@nolebase/"],
+      "groupName": "Nolebase Plugins"
+    }
+  ]
+}
