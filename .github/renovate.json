@@ -42,14 +42,14 @@
   // 自定义规则，拥有最高优先级
   "packageRules": [
     {
-      // 聚合 vitepress 和 vue 的更新
-      "matchPackagePatterns": ["vitepress", "vue"],
-      "groupName": "VitePress & Vue Core"
+      // 对于所有包，如果更新类型是主版本 (major)，则禁用该更新
+      "matchUpdateTypes": ["major"],
+      "automerge": false
     },
     {
-      // 聚合所有 @nolebase/ 包的更新
-      "matchPackagePatterns": ["^@nolebase/"],
-      "groupName": "Nolebase Plugins"
+      // 为 VitePress 创建一个独立的更新分组
+      "matchPackageNames": ["vitepress"],
+      "groupName": "✨ VitePress Core"
     }
   ]
 }
