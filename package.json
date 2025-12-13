@@ -5,6 +5,7 @@
     "email": "stao.ding@qq.com",
     "url": "https://github.com/versiw"
   },
+  "packageManager": "pnpm@9.6.0",
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
