@@ -1,55 +1,56 @@
 {
-  // 为编辑器提供智能提示和语法校验
+  // 启用智能提示与校验
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
-  // 继承一系列预设配置，组合使用
+  // 继承基础预设
   "extends": [
     // 官方推荐的基础配置
     "config:recommended",
-    // 启用依赖仪表盘 Issue，用一个 Issue 集中管理所有更新，减少 PR 干扰
+    // 启用仪表盘，减少 PR 骚扰
     ":dependencyDashboard",
-
-    // 每周运行一次
-    "schedule:weekly",
-    // 解除 PR 创建的数量限制，确保周任务能一次性跑完
+    // 解除每小时 PR 限制
     ":prHourlyLimitNone",
+    // 解除并发 PR 限制
     ":prConcurrentLimitNone",
-    // 自动合并测试通过的、安全的非主版本更新 (minor/patch)
+    // 自动合并 Minor/Patch 更新
     ":automergeStableNonMajor",
-
-    // 规范化 PR 标题，如 chore(deps):
+    // 规范 PR 标题前缀
     ":semanticPrefixFixDepsChoreOthers",
-    // 忽略 node_modules 和一些常见测试目录下的依赖文件
+    // 忽略测试文件与 node_modules
     ":ignoreModulesAndTests",
-
-    // 聚合 Monorepo 项目的包 (如 @babel/core, @babel/cli)
+    // 聚合 Monorepo 依赖 (主要用于 Major 更新时的分组)
     "group:monorepos",
-    // 聚合生态圈的包 (如 eslint 及其插件)
+    // 聚合知名生态圈依赖 (主要用于 Major 更新时的分组)
     "group:recommended",
-    // 将所有剩余的零散小更新打包进一个 PR
+    // 将其余非 Major 更新合并为一个 PR (这会吸收上面两组的 Minor/Patch 更新)
     "group:allNonMajor",
-
-    // 自动应用已知问题包的修复方案
+    // 应用社区已知补丁
     "workarounds:all"
   ],
 
-  // 为所有相关 PR 添加 'dependencies' 标签，便于筛选
-  "labels": ["dependencies"],
+  // 设置时区
+  "timezone": "Asia/Shanghai",
+  // 运行时间
+  "schedule": ["* 10-17 * * 5"],
 
-  // 合并 PR 时将多个 commit 压成一个，保持主干历史整洁
+  // 添加标签
+  "labels": ["dependencies"],
+  // 采用 Squash 合并策略
   "automergeStrategy": "squash",
 
-  // 自定义规则，拥有最高优先级
   "packageRules": [
     {
-      // 对于所有包，如果更新类型是主版本 (major)，则禁用该更新
+      // Major 更新：禁止自动合并，需在仪表盘手动勾选才创建 PR
       "matchUpdateTypes": ["major"],
-      "automerge": false
+      "automerge": false,
+      "dependencyDashboardApproval": true
     },
     {
-      // 为 VitePress 创建一个独立的更新分组
-      "matchPackageNames": ["vitepress"],
-      "groupName": "✨ VitePress Core"
+      // VitePress 核心及 Vue 生态：重要依赖，需手动在仪表盘勾选才创建 PR，且禁止自动合并
+      "matchPackagePatterns": ["^vitepress$", "^vue$"],
+      "groupName": "✨ VitePress & Vue Core",
+      "automerge": false,
+      "dependencyDashboardApproval": true
     }
   ]
 }

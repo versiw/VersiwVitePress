@@ -15,8 +15,9 @@ $icon-size: 20px;
   margin-right: 2px;
 }
 
-.Layout:not(.custom-nav-class,.custom-book-class) .vp-doc a:not([href^='https://img.shields.io/'])
-{
+.Layout:not(.custom-nav-class, .custom-book-class)
+  .vp-doc
+  a:not([href^='https://img.shields.io/']) {
   // 默认外部链接图标
   &:is([target='_blank'], [href^='./'], [href^='../'])::before {
     @include icon-base;
