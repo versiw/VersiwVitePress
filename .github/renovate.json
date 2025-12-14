@@ -1,56 +1,33 @@
 {
-  // 启用智能提示与校验
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-
-  // 继承基础预设
   "extends": [
-    // 官方推荐的基础配置
     "config:recommended",
-    // 启用仪表盘，减少 PR 骚扰
     ":dependencyDashboard",
-    // 解除每小时 PR 限制
     ":prHourlyLimitNone",
-    // 解除并发 PR 限制
     ":prConcurrentLimitNone",
-    // 自动合并 Minor/Patch 更新
     ":automergeStableNonMajor",
-    // 规范 PR 标题前缀
     ":semanticPrefixFixDepsChoreOthers",
-    // 忽略测试文件与 node_modules
     ":ignoreModulesAndTests",
-    // 聚合 Monorepo 依赖 (主要用于 Major 更新时的分组)
     "group:monorepos",
-    // 聚合知名生态圈依赖 (主要用于 Major 更新时的分组)
     "group:recommended",
-    // 将其余非 Major 更新合并为一个 PR (这会吸收上面两组的 Minor/Patch 更新)
     "group:allNonMajor",
-    // 应用社区已知补丁
     "workarounds:all"
   ],
-
-  // 设置时区
   "timezone": "Asia/Shanghai",
-  // 运行时间
   "schedule": ["* 10-17 * * 5"],
-
-  // 添加标签
   "labels": ["dependencies"],
-  // 采用 Squash 合并策略
   "automergeStrategy": "squash",
-
   "packageRules": [
     {
-      // Major 更新：禁止自动合并，需在仪表盘手动勾选才创建 PR
       "matchUpdateTypes": ["major"],
       "automerge": false,
       "dependencyDashboardApproval": true
     },
     {
-      // VitePress 核心及 Vue 生态：重要依赖，需手动在仪表盘勾选才创建 PR，且禁止自动合并
-      "matchPackagePatterns": ["^vitepress$", "^vue$"],
       "groupName": "✨ VitePress & Vue Core",
       "automerge": false,
-      "dependencyDashboardApproval": true
+      "dependencyDashboardApproval": true,
+      "matchPackageNames": ["/^vitepress$/", "/^vue$/"]
     }
   ]
 }
