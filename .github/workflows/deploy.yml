@@ -46,12 +46,18 @@ jobs:
           # 保留 Git 信息
           fetch-depth: 0
 
+      # 安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       # 设置使用 Node.js 版本
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm # 或 pnpm / yarn
+          cache: pnpm # 或 pnpm / yarn
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -59,11 +65,11 @@ jobs:
         # 安装依赖
       - name: Install dependencies
         run: |
-          npm install
+          pnpm install
 
         # 构建项目
       - name: Build with VitePress
-        run: npm run docs:build
+        run: pnpm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
