@@ -47,7 +47,7 @@
     },
     {
       // VitePress 核心及 Vue 生态：重要依赖，需手动在仪表盘勾选才创建 PR，且禁止自动合并
-      "matchPackagePatterns": ["^vitepress$", "^vue$"],
+      "matchPackageNames": ["/^vitepress$/", "/^vue$/"],
       "groupName": "✨ VitePress & Vue Core",
       "automerge": false,
       "dependencyDashboardApproval": true
