@@ -23,7 +23,7 @@ importers:
         version: 0.15.14(vue@3.5.25(typescript@5.9.3))
       '@fancyapps/ui':
         specifier: ^6.0.15
-        version: 6.1.8
+        version: 6.1.10
       '@giscus/vue':
         specifier: ^3.1.1
         version: 3.1.1(vue@3.5.25(typescript@5.9.3))
@@ -373,8 +373,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fancyapps/ui@6.1.8':
-    resolution: {integrity: sha512-Hrk1MX25ZTybW8PCf47ZT9nqV2/ilnXUH4QtJXm3TxTKSLVi1nHcq6ZMmtXgl2zHLr4uphiw+1bOz9yL81iSHA==}
+  '@fancyapps/ui@6.1.10':
+    resolution: {integrity: sha512-sLiIk2jLPY10nzuZu5fMMaS5//8g44QrSREVnI4VXs4Kih+g2wMUyfgsOdTqw36BfVh6ghmMKadm+Mmxy5ynvw==}
 
   '@giscus/vue@3.1.1':
     resolution: {integrity: sha512-xgsc93MibRQ0d1glBxN1BrEREHTIf3BPYs/3R+UZHNqawFFoWBV6iJ7uVCXMqoEKZdE2c78B3aKt5gfGqo8I5A==}
@@ -2118,7 +2118,7 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
-  '@fancyapps/ui@6.1.8': {}
+  '@fancyapps/ui@6.1.10': {}
 
   '@giscus/vue@3.1.1(vue@3.5.25(typescript@5.9.3))':
     dependencies:
