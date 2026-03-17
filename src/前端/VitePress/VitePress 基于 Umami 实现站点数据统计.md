@@ -91,6 +91,14 @@ datasource db {
 
 步骤参考[[#在 Netlify 上部署前端界面（不推荐）]], 大体上流程差不多的。
 
+> [!note] 注意
+> Umami 已更新 `3.x` 版本，利用 vercel 可以一键安装，并且无需更改源码，环境变量设置正确即可部署，无需 `DIRECT_DATABASE_URL` 了。
+
+```txt
+DATABASE_URL=postgre://postgres:[YOUR-PASSWORD]@[YOUR-SUPABASE-ENDPOINT]:5432/postgres?pgbouncer=true&connect_timeout=10
+```
+
+
 ### 绕过广告拦截器
 
 既然都换托管平台了，那之前 `Netlify` 的环境变量 `TRACKER_SCRIPT_NAME` 失效的问题也应该得到了解决，毕竟如果更新了 `Umami` 还需要替换跟踪脚本文件，应该挺麻烦的。
